@@ -1,0 +1,3 @@
+To respect the original creators' rights while ensuring ease of use, the necessary font files are included in this repository under redistribution terms. All fonts retain their original licenses and copyrights. Please refer to their individual license files for specific usage details.
+
+The only modification is the conversion of RoyalInitialen from the legacy Type1 (`.pfb`) format to the modern OpenType (`.otf`) format for broader compatibility. Its license remains unchanged.
