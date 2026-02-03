@@ -3,7 +3,7 @@
 )
 #import "flex-heading.typ": flex-heading
 #import "config.typ": (
-  colors, config-colors, config-fonts, config-info, config-page, config-style, easy-colors, toa-config,
+  colors, config-colors, config-fonts, config-info, config-page, config-style, default-config, easy-colors, toa-config,
 )
 #import "area.typ": dnd-area
 #import "comment.typ": dnd-comment
