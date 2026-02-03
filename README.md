@@ -49,3 +49,9 @@ They can be found in [/fonts](https://github.com/sa1g/dnd-typst-template/tree/ma
 
 - Background image (`img/paper.jpg`) from [Lost and Taken](https://lostandtaken.com/)
 - Config injection inspired by [touying](https://github.com/touying-typ/touying)
+
+# Other Similar Projects
+
+- [Owlbear](https://typst.app/universe/package/owlbear/)
+- [Dragonling](https://typst.app/universe/package/dragonling/)
+- [wenyuan-campaign](https://typst.app/universe/package/wenyuan-campaign/)
