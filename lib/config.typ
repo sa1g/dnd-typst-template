@@ -612,12 +612,13 @@
   headers-level-4-line-thickness: 1.2pt,
   outline-repeated-symbol: ".",
   outline-indent: true,
-  footer-image-left: "../assets/footer/default/r.svg",
-  footer-image-right: "../assets/footer/default/l.svg",
+  footer-image-left: image("../assets/footer/default/r.svg"),
+  footer-image-right: image("../assets/footer/default/l.svg"),
   footer-chapter-dx: -6%,
   footer-chapter-dy: 76%,
   footer-number-dx: -15.5%,
   footer-number-dy: 77%,
+  footer-scale: 133%,
   ..args,
 ) = {
   if args.pos().len() > 0 or args.named().len() > 0 {
@@ -638,6 +639,7 @@
         indent: outline-indent,
       ),
       footer: (
+        scale: footer-scale,
         left: (
           image: footer-image-left,
           number: (

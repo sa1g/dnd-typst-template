@@ -11,6 +11,8 @@
     chap-align = right
   }
 
+  set image(width: self.style.footer.scale)
+
   align(
     bottom + center,
     [
@@ -46,7 +48,7 @@
           ]
         ],
       )
-      #image(self.style.footer.at(lr).image, width: 133%)
+      #self.style.footer.at(lr).image
     ],
   )
 }
