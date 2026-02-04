@@ -418,15 +418,27 @@
   body
 }
 
-#let show-outline() = {
+#let show-outline(n-cols: 2, do-pagebreak: true, balance-columns: false) = {
   show outline: it => {
     utils.in-outline.update(true)
     it
     utils.in-outline.update(false)
   }
 
-  set page(columns: 2)
-  outline()
+  if (do-pagebreak == true) {
+    pagebreak()
+  }
+  let l-outline = columns(n-cols)[
+    #outline()
+  ]
+  if balance-columns {
+    utils.columns-balance(
+      n-cols: n-cols,
+      l-outline,
+    )
+  } else {
+    l-outline
+  }
   set page(columns: 1)
 }
 
