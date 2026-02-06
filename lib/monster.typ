@@ -140,6 +140,7 @@
     e
     linebreak()
   }
+
   #monster-red-bar(self)
 
   #let modifiers = ()
@@ -337,30 +338,56 @@
 
   let formatted-monster = monster(self, body)
   let header = {
-    place(top, dx: -5pt, dy: -5pt, float: true)[#rect(
-      fill: self.fill.monster.ribbon,
-      stroke: (top: 0.5pt + black, bottom: 0.5pt + black),
-      height: 4pt,
-      width: 100% + 10pt,
-    )]
+    place(top, dx: -5pt, dy: -5pt, float: true)[
+      #rect(
+        fill: self.fill.monster.ribbon,
+        stroke: (top: 0.5pt + black, bottom: 0.5pt + black),
+        height: 4pt,
+        width: 100% + 10pt,
+      )
+    ]
     v(-15pt)
   }
   let footer = {
-    place(bottom, dx: -5pt, dy: +5pt, float: true)[#rect(
-      fill: self.fill.monster.ribbon,
-      stroke: (top: 0.5pt + black, bottom: 0.5pt + black),
-      height: 4pt,
-      width: 100% + 10pt,
-    )]
+    place(bottom, dx: -5pt, dy: +5pt, float: true)[
+      #rect(
+        fill: self.fill.monster.ribbon,
+        stroke: (top: 0.5pt + black, bottom: 0.5pt + black),
+        height: 4pt,
+        width: 100% + 10pt,
+      )
+    ]
   }
 
-  utils.columns-balance(n-cols: col, fill: color.transparentize((self.fill.monster.background), self.fill.monster.transparency),[
-    #header
-    #columns(col)[
-      #formatted-monster
-    ]
-    #footer
-  ])
+  utils.columns-balance(
+    n-cols: col,
+    fill: color.transparentize((self.fill.monster.background), self.fill.monster.transparency),
+    [
+      #header
+      #columns(col)[
+        #formatted-monster
+      ]
+      #footer
+    ],
+  )
+
+  //   #let columns-balance(fill: none, n-cols: 2, height-correction: 10pt, content) = layout(size => {
+  //   let textheight = measure(content, width: size.width).height / n-cols
+  //   let height = measure(content, height: textheight + height-correction, width: size.width).height
+  //   block(height: height, fill: fill, width: 100%, content)
+  // })
+  // block(
+  //   width: 100%,
+  //   fill: self.fill.monster.background.transparentize(self.fill.monster.transparency),
+  //   // stroke: (0.5pt + self.fill.monster.edges),
+  //   breakable: false,
+  // )[
+  //   #columns(2)[
+  //     #header
+  //     #formatted-monster
+  //     #footer
+  //   ]
+  // ]
 })
 
 
