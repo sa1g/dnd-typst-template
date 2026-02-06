@@ -144,8 +144,31 @@
 /// #balance(columns(2)[
 //    #lorem(500)
 //  ])
-#let columns-balance(fill: none, n-cols: 2, height-correction: 10pt, content) = layout(size => {
+// #let columns-balance(fill: none, n-cols: 2, height-correction: 10pt, content) = layout(size => {
+//   let textheight = measure(content, width: size.width).height / n-cols
+//   let height = measure(content, height: textheight + height-correction, width: size.width).height
+//   block(height: height, fill: fill, width: 100%, content)
+// })
+
+#let columns-balance(fill: none, n-cols: 2, content) = layout(size => {
   let textheight = measure(content, width: size.width).height / n-cols
-  let height = measure(content, height: textheight + height-correction, width: size.width).height
-  block(height: height, fill: fill, width: 100%, content)
+
+  // 2em is the horizontal space taken by the column dividers in the block inset, so we need to add it to the height of the block to make sure the content fits.
+  let corrected-height = textheight + ((n-cols + 1) * 1em) // + ((n-cols - 1) * 2em)
+
+
+  let height = measure(content, height: corrected-height, width: size.width).height //+ 1em
+  if n-cols == 1 {
+    height = corrected-height
+  }
+
+  block(
+    height: height + 1em,
+    fill: fill,
+    width: 100%,
+    inset: 1em,
+    above: 1em,
+    below: 1em,
+  )[
+    #content]
 })
