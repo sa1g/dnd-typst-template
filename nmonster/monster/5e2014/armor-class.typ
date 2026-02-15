@@ -46,8 +46,6 @@
   if type(body) == str {
     return [#body]
   }
-
-
 }
 
 #let render-ac(self, body) = {
@@ -69,5 +67,8 @@
     ac = pre-render-ac(self, body.ac)
   }
 
-  return [#text(fill: self.fill.monster.title, weight: self.font.monster.title.weight, transl("armor-class")): #ac]
+  return [
+    === #transl("armor-class")
+    #ac
+  ]
 }

@@ -19,7 +19,7 @@
 //           > `note`: string
 
 #import "../utils.typ"
-#import "../enum.typ"
+#import "../process/enum.typ"
 
 
 // RESISTANCE

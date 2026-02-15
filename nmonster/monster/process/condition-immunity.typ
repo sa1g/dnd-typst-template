@@ -22,7 +22,7 @@
 
  
 #import "../utils.typ"
-#import "../enum.typ"
+#import "../process/enum.typ"
 
 #let process-condition-immune(body) = {
   if not body.keys().contains("conditionImmune") { return }

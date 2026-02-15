@@ -5,7 +5,7 @@
 // array: string
 // none
 
-#import "../enum.typ"
+#import "../process/enum.typ"
 #import "../utils.typ"
 
 // array: str

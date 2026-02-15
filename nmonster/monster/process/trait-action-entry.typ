@@ -9,7 +9,8 @@
         if type(entry) == dictionary {
           // keys: name <str>, entries <array of str>
 
-          [#strong(entry.name) #entry.entries.join(", ")#linebreak()]
+          [==== #entry.name
+            #entry.entries.join(", ")#linebreak()#v(0pt)]
         } else {
           panic("not supported entry type: ", type(entry))
         }

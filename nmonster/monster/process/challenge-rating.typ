@@ -13,7 +13,7 @@
 #import "@preview/t4t:0.4.2": get
 #import "@local/mythographer-5e:0.0.1": transl
 
-#import "../enum.typ"
+#import "../process/enum.typ"
 #import "../utils.typ"
 
 #let challenge-to-xp(body) = {

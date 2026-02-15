@@ -21,7 +21,7 @@
 // "acid", "bludgeoning", "cold", "fire", "force", "lightning", "necrotic", "piercing", "poison", "psychic", "radiant", "slashing", "thunder"
 
 #import "../utils.typ"
-#import "../enum.typ"
+#import "../process/enum.typ"
 
 // IMMUNE - same as vulnerability
 // - array:

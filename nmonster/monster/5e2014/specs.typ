@@ -30,13 +30,12 @@
   // tool -> not developed
   // gear -> not developed
   #render-trait-if-not-none(self, "languages", language.process-lang(body))
-  // proficiency bonus
-  #v(-5pt)
-  #grid(columns: (50%, 50%), align: (left+top, right+bottom))[#render-trait-if-not-none(self, "cr", challenge-rating.process-cr(body))][#render-trait-if-not-none(self, "proficiency-bonus", proficiency-bonus.process-proficiency(body))]
-  #v(-5pt)
   // Note: code for vulnerability, immunity and resistance, condition-immune is ~the same, they could be merged into one
   #render-trait-if-not-none(self, "vulnerable", vulnerability.process-vulnerability(body))
   #render-trait-if-not-none(self, "immune", immunity.process-immunity(body))
   #render-trait-if-not-none(self, "resist", resistance.process-resistance(body))
   #render-trait-if-not-none(self, "condition-immune", condition-immunity.process-condition-immune(body))
+  #v(-5pt)
+  #grid(columns: (50%, 50%), align: (left+top, right+bottom))[#render-trait-if-not-none(self, "cr", challenge-rating.process-cr(body))][#render-trait-if-not-none(self, "proficiency-bonus", proficiency-bonus.process-proficiency(body))]
+  // #v(-5pt)
 ]
