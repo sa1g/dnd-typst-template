@@ -43,13 +43,7 @@
   let prof = none
 
   if type(body.cr) == str {
-    // xp = [#body.cr (#challenge-to-xp(body.cr) #transl("xp"))]
-
-    // processed.push([#transl("cr") )])
-  
-    // processed.push([#transl("cr") #body.cr (#challenge-to-xp(xp) #transl("xp"))])
-  
-    (proc: [#body.cr (#challenge-to-xp(body.cr) #transl("xp")], amount: 1)
+    (proc: [#body.cr (#challenge-to-xp(body.cr) #transl("xp"))], amount: 1)
   
   } else if type(body.cr) == dictionary {
     let processed = ()
@@ -65,17 +59,16 @@
     if body.cr.keys().contains("lair") {
       xp = get.text([#body.cr.lair (#challenge-to-xp(body.cr.lair))])
       processed.push([#transl("in-laira", experience: xp)])
-
-      // processed.push([#transl("in-lair", experience: challenge-to-xp(body.cr.lair))])
     }
+    
     if body.cr.keys().contains("xpLair") {
       processed.push([#transl("in-lair", experience: body.cr.xpLair)])
     }
+
     if body.cr.keys().contains("coven") {
       panic("Covens not supported at the moment")
     }
     return (proc: processed.join(" "), amount: 1)
 
-    // return (proc: processed.join([ #transl("or") ]), amount: 1)
   }
 }

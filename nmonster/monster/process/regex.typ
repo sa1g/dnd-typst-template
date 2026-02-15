@@ -1,5 +1,9 @@
 #import "@local/mythographer-5e:0.0.1": transl
 
+#import "../../utils.typ"
+
+#import "@preview/t4t:0.4.2": get
+
 #let regex-5etools-tags(body) = {
   let body = body
   // DC
@@ -23,12 +27,12 @@
 
   // DICE
   body = str.replace(body, regex("(?:\d+\s*\()?\{@dice\s+([^}]+)\}\)?"), match => {
-    get.text(dnd-dice(match.text.find(regex("\d+d\d+\s*(?:\+\s*\d+)?"))))
+    get.text(utils.dnd-dice(match.text.find(regex("\d+d\d+\s*(?:\+\s*\d+)?"))))
   })
 
   // DAMAGE
   body = str.replace(body, regex("(?:\d+\s*\()?\{@damage\s+([^}]+)\}\)?"), match => {
-    get.text(dnd-dice(match.text.find(regex("\d+d\d+\s*(?:\+\s*\d+)?"))))
+    get.text(utils.dnd-dice(match.text.find(regex("\d+d\d+\s*(?:\+\s*\d+)?"))))
   })
 
   // SPELLS {@spell <name>}

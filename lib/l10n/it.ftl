@@ -455,7 +455,7 @@ reaction = Reazioni
 bonus = Azioni Bonus
 legendary = Azioni Leggendarie
 
-legendary-header = Legendary Action Uses: {amount} (4 in Lair). Immediately after another creature's turn, {$shortName} can expend a use to take one of the following actions. {$shortName} regains all expended uses at the start of each of its turns.
+legendary-header = Legendary Action Uses: {$amount}. Immediately after another creature's turn, {$shortName} can expend a use to take one of the following actions. {$shortName} regains all expended uses at the start of each of its turns.
 
 legendary-header-lair = Legendary Action Uses: {$amount} ({$lairAmount} in Lair). Immediately after another creature's turn, {$shortName} can expend a use to take one of the following actions. {$shortName} regains all expended uses at the start of each of its turns.
 

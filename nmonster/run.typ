@@ -19,15 +19,16 @@
 #let unicorn = json("tmp_json/unicorn.json")
 #let unicorn = json("tmp_json/acererak.json")
 // #let unicorn = json("tmp_json/blackguard.json")
-// // #let unicorn = json("tmp_json/frost.json")
+// #let unicorn = json("tmp_json/frost.json")
 // #let unicorn = json("tmp_json/adult-blue.json")
-// // #let unicorn = json("tmp_json/abissal.json") // resistance, immunity
-// // #let unicorn = json("tmp_json/antilon.json") // senses 
-// // #let unicorn = json("tmp_json/air-elemental.json") // senses // resistances
+// #let unicorn = json("tmp_json/abissal.json") // resistance, immunity
+// #let unicorn = json("tmp_json/antilon.json") // senses 
+// #let unicorn = json("tmp_json/air-elemental.json") // senses // resistances
 // #let unicorn = json("tmp_json/mummy-lord.json") // 
-// // #let unicorn = json("tmp_json/undead-swarm.json") // 
-#let unicorn = json("tmp_json/yuanti.json") // 
-#let unicorn = json("tmp_json/ras.json") // 
+// #let unicorn = json("tmp_json/undead-swarm.json") // 
+// #let unicorn = json("tmp_json/yuanti.json") // 
+// #let unicorn = json("tmp_json/ras.json") // 
+// #let unicorn = json("tmp_json/ki.json")
 
 
 

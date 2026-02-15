@@ -9,7 +9,7 @@
 //            > ?
 //    > none
 
-
+#import "regex.typ"
 
 
 // NOTE: action, actionNote, bonus, bonusNote, reaction, reactionNote -> they may need to be rendered as well!
@@ -27,7 +27,7 @@
   assert(type(body) == array, message: "Actions are created as arrays!")
   let processed = body.map(act => {
     [ === #act.name
-      #act.entries.join(" ")
+      #act.entries.map(en => {regex.regex-5etools-tags(en)}).join(" ")
     ]
   })
 

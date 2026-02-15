@@ -1,8 +1,7 @@
+#import "@local/mythographer-5e:0.0.1": call-if-fn
+
 #import "utils.typ": capitalize, translate-top-level-word-if-possible
-
-
 #import "visual.typ": triangle-bar
-
 
 #import "5e2014/name.typ": render-name
 #import "5e2014/size-type.typ": render-size-type
@@ -13,124 +12,80 @@
 #import "5e2014/ability-modifiers.typ": render-abilities
 #import "5e2014/specs.typ": render-specs
 #import "5e2014/traits.typ": render-traits
-
-
-
-
-
-///////////////////////////////////////////////////
-/// MONSTER RENDER
-
-// keys i don't care about:
-// shortName, alias, group, sizeNote, source, sourceSub, otherSources, referenceSources, reprintedAs,
-// isReprinted, tool and gear (as currently sidekicks aren't supported),  pbNote, actionNote, actionHeader, bonusNote, bonusHeader, reactionNote, reactionHeader, legendaryGroup, page, additionalSources, hasToken, tokenCredit, tokenCustom, foundryTokenScale, altArt, token, isNamedCreature, isNpc, soundClip, dragonCastingColor, dragonAge, traitTags, actionTags, languageTags, senseTags, spellcastingTags, damageTags, damageTagsSpell, damageTagsLegendary, attachedItems,conditionInflict, conditionInflictLegendary, conditionInflictSpell, savingThrowForced, savingThrowForcedLegendary, savingThrowForcedSpell, footer, legacy, _isCopy, _verions, hasFluff, hasFluffImages
-//
-
-
-#let to-remove = (
-  "shortName",
-  "alias",
-  "group",
-  "sizeNote",
-  "source",
-  "sourceSub",
-  "otherSources",
-  "referenceSources",
-  "reprintedAs",
-  "isReprinted",
-  "tool",
-  "gear",
-  "pbNote",
-  "actionNote",
-  "actionHeader",
-  "bonusNote",
-  "bonusHeader",
-  "reactionNote",
-  "reactionHeader",
-  "legendaryGroup",
-  "page",
-  "additionalSources",
-  "hasToken",
-  "tokenCredit",
-  "tokenCustom",
-  "foundryTokenScale",
-  "altArt",
-  "token",
-  "isNamedCreature",
-  "isNpc",
-  "soundClip",
-  "dragonCastingColor",
-  "dragonAge",
-  "traitTags",
-  "actionTags",
-  "languageTags",
-  "senseTags",
-  "spellcastingTags",
-  "damageTags",
-  "damageTagsSpell",
-  "damageTagsLegendary",
-  "attachedItems",
-  "conditionInflict",
-  "conditionInflictLegendary",
-  "conditionInflictSpell",
-  "savingThrowForced",
-  "savingThrowForcedLegendary",
-  "savingThrowForcedSpell",
-  "footer",
-  "legacy",
-  "_isCopy",
-  "_versions",
-  "hasFluff",
-  "hasFluffImages",
-)
-
-#let remove-if-present(keys, json-file) = {
-  let json-keys = json-file.keys()
-  let json-file = json-file
-  for key in keys {
-    if key in json-keys {
-      // json-file.remove(key)
-      let na = json-file.remove(key)
-    }
-  }
-  return json-file
-}
+#import "5e2014/act-bon-react.typ": render-act-bon-react, render-legendary-action
+#import "process/shortname.typ": compute-shortname
 
 #let monster-5e(self, body) = context {
-  let body = remove-if-present(to-remove, body)
-  return [
-    #set text(font: self.font.monster.font, size: self.font.monster.size)
+  set text(font: self.font.monster.font, size: self.font.monster.size)
+  // Monster Name
+  set heading(outlined: false)
+
+  show heading.where(level: 1): it => {
+    set text(
+      size: self.font.monster.title.size,
+      weight: self.font.monster.title.weight,
+      font: self.font.monster.title.font,
+      fill: self.fill.monster.title,
+    )
+    it.body
+  }
+
+  // Heading w/RedBar (Actions/BonusActions/Reactions/Legendary/Mythic)
+  show heading.where(level: 2): it => {
+    set text(size: self.font.monster.subtitle.size, fill: self.fill.monster.title)
+    
+    call-if-fn(self.font.monster.subtitle.style, it.body)
+    v(-12pt)
+    line(stroke: 0.7pt + self.fill.monster.title, length: 100%)
+  }
+
+  // Specs
+  show heading.where(level: 3): it => {
+    set text(
+      size: self.font.monster.size,
+      fill: self.fill.monster.title,
+      weight: self.font.monster.title.weight,
+    )
+    it.body + ":"
+  }
+
+  // Spells/Traits/Actions
+  show heading.where(level: 4): it => {
+    set text(
+      size: self.font.monster.size,
+      fill: black,
+      weight: "bold",
+      style: "italic",
+    )
+    it.body + "."
+  }
+
+  // Add short name as it's needed e.g. in `legendary action headers`
+  let body = compute-shortname(body)
+  [
     #render-name(self, body)
     #linebreak()
-    // // Need a better way to translate, while keeping a correct word order
-    // // of size, type and alignment (e.g. in english we have "Medium Undead, Neutral Evil"
-    // // in italian is "Umanoide Medi*o*, Neutrale Malvagi*o*", but as the language doesn't have
-    // // a neutral form we have e.g. plants: "Mostruosità" [monstrosity] medi*a*, neutrale malvagi*a*.)
-    #render-size-type(self, body), #render-alignment(self, body)
+    #render-size-type(self, body), #render-alignment(self, body) #linebreak()
     #triangle-bar(self)
     // // AC HP SPEED
     #render-ac(self, body) #linebreak()
     #render-hp(self, body) #linebreak()
-    #render-speed(self, body)
+    #render-speed(self, body) #linebreak()
     #triangle-bar(self)
-    // // ABILITY SCORES
+    // ABILITY SCORES
     #render-abilities(self, body)
     #triangle-bar(self)
     // SPECS
     #render-specs(self, body)
     #triangle-bar(self)
-    // TRAITS
+    // TRAITS + SPELLCASTING
     #render-traits(self, body)
-    // traits
-    // spellcasting (?)
-
-    // ACTIONS
-
-    // BONUS
-
-    // REACTIONS
-
-    // LEGENDARY
-
+    // ACTIONS - BONUS - REACTIONS (they have the same structure)
+    #render-act-bon-react(self, "action", body)
+    #render-act-bon-react(self, "reaction", body)
+    #render-act-bon-react(self, "bonus", body)
+    // LEGENDARY - very similar to actions. Wrapper to add custom heading.
+    #render-legendary-action(self, body)
+    #render-act-bon-react(self, "mythic", body)
   ]
 }

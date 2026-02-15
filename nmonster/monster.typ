@@ -1,10 +1,11 @@
+// This monster visualizer is compatible with 5etools schema (official). It support some "homebrew" 
+// setups provided by 5etools, but these haven't been tested (15/02/2026 - Sa1g).
+// 
+// 
 // https://github.com/TheGiddyLimit/5etools-utils/blob/master/schema-template/bestiary/bestiary.json
 // https://github.com/TheGiddyLimit/5etools-utils/blob/master/schema-template/util.json
 // https://github.com/TheGiddyLimit/5etools-utils/blob/master/schema-template/entry.json
-#import "@local/mythographer-5e:0.0.1": call-if-fn, fn-wrapper, merge-dicts, transl
-#import "@preview/t4t:0.4.2": get // use get.text[stuff]
-
-#import "utils.typ"
+#import "@local/mythographer-5e:0.0.1":fn-wrapper, merge-dicts
 #import "monster/5e2014.typ": monster-5e
 
 

@@ -52,6 +52,8 @@
 
 #import "@preview/t4t:0.4.2": get
 #import "@local/mythographer-5e:0.0.1": transl
+#import "regex.typ"
+
 
 // _arrayOfSpell
 #let array-of-spell(body) = {
@@ -65,8 +67,7 @@
     )
 
     if type(entry) == str {
-      // TODO: add regex
-      [#entry]
+      [#regex.regex-5etools-tags(entry)]
     } else if type(entry) == dictionary {
       assert(
         entry.keys().contains("entry") and entry.keys().contains("hidden"),
@@ -75,7 +76,7 @@
 
       // TODO: add regex
       // TODO: check hidden effect
-      [#entry #hidden]
+      [#regex.regex-5etools-tags(entry) #regex.regex-5etools-tags(hidden)]
     }
   })
 
@@ -141,11 +142,13 @@
 #let entry-spellcasting-recharge(key, body) = {
   let spellcasting-recharge = ("1", "2", "3", "4", "5", "6")
 
+  // Check data
   let body = body.at(key)
   for key in body.keys() {
     assert(spellcasting-recharge.contains(key), message: "Invalid key.")
   }
 
+  // Process
   let spells = ()
   for (key, value) in body.pairs() {
     spells.push([Recharge #key: #array-of-spell(value)#linebreak()])
@@ -160,19 +163,22 @@
   let spells = ()
   let keys = body.keys()
   for (name, value) in body {
+    let iter-spells = emph(regex.regex-5etools-tags(value.spells.join(", ")))
+
+
     if name == "0" {
       // Cantrips
-      spells.push([#transl("cantrips", mode: str): #emph(value.spells.join(", "))])
+      spells.push([#transl("cantrips", mode: str): #iter-spells])
     } else {
       // Spells
       if keys.contains("lower") and keys.contains("slots") {
         panic("At the moment i have no idea on how this should be showd :(")
       } else if keys.contains("slots") {
         spells.push(
-          [#transl("level", n: (name), mode: str) (#value.slots #transl("slot", t: slots, mode: str)): #emph(value.spells.join(", "))],
+          [#transl("level", n: (name), mode: str) (#value.slots #transl("slot", t: slots, mode: str)): #iter-spells],
         )
       } else {
-        spells.push([#transl("level", n: (name), mode: str): #emph(value.spells.join(", "))])
+        spells.push([#transl("level", n: (name), mode: str): #iter-spells])
       }
     }
   }
@@ -199,7 +205,7 @@
 
     // name, header
     current-spell.push([==== #spell-block.name ])
-    if keys.contains("headerEntries") { current-spell.push([#spell-block.headerEntries.join(" ")#linebreak()#v(4pt)]) }else{ current-spell.push([#linebreak()])}
+    if keys.contains("headerEntries") { current-spell.push([#spell-block.headerEntries.map(en => {regex.regex-5etools-tags(en)}).join(" ")#linebreak()#v(4pt)]) }else{ current-spell.push([#linebreak()])}
 
     // _arrayOfSpell
     if keys.contains("constant") { current-spell.push(show-base-array-of-spell("constant", spell-block.constant)) }
