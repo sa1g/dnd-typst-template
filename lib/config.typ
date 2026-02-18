@@ -680,7 +680,7 @@
   config-fonts(),
   config-style(),
   
-  ("monster-lang": read("l10n/it.ftl")),
+  // ("monster-lang-data": read("l10n/it.ftl"), "monster-lang": "it"),
 )
 
 
