@@ -1,13 +1,14 @@
-// This monster visualizer is compatible with 5etools schema (official). It support some "homebrew" 
+// This monster visualizer is compatible with 5etools schema (official). It support some "homebrew"
 // setups provided by 5etools, but these haven't been tested (15/02/2026 - Sa1g).
-// 
-// 
+//
+//
 // https://github.com/TheGiddyLimit/5etools-utils/blob/master/schema-template/bestiary/bestiary.json
 // https://github.com/TheGiddyLimit/5etools-utils/blob/master/schema-template/util.json
 // https://github.com/TheGiddyLimit/5etools-utils/blob/master/schema-template/entry.json
-#import "@local/mythographer-5e:0.0.1":fn-wrapper, merge-dicts
+#import "@local/mythographer-5e:0.0.1": fn-wrapper, merge-dicts
 #import "monster/5e2014.typ": monster-5e
 
+#import "monster/process/regex.typ": process-5etool-tags
 
 // #let balance1(fill: none, n-cols: 2, content) = layout(size => {
 //   let cols-to-pec = ("1": 100%, "2": 50%, "3": 33%, "4": 25%)
@@ -15,7 +16,7 @@
 //   let textheight =( measure(content, width: size.width/n-cols).height)
 
 //   textheight = (textheight + 0.16*textheight) / n-cols
-//   // let height = measure(content, height: textheight + 9pt, width: size.width).height 
+//   // let height = measure(content, height: textheight + 9pt, width: size.width).height
 
 //   // return [#textheight, #height]
 
@@ -31,6 +32,7 @@
 // })
 
 
+#import "@local/mythographer-5e:0.0.1": transl
 
 
 #let dnd-monster(config: (:), body) = fn-wrapper(self => {
@@ -39,6 +41,12 @@
   }
 
   // Get shortName (get or compile)
+
+
+  let monster = monster-5e(config, body)
+  
+  
+  monster = process-5etool-tags(config, monster)
 
   block(
     // height: height + 1em,
@@ -49,8 +57,8 @@
     below: 1em,
   )[
     #columns()[
-      #monster-5e(config, body)
-
+      #monster
+      // #config.monster-lang
     ]
   ]
 })

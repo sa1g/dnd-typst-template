@@ -27,7 +27,7 @@
   assert(type(body) == array, message: "Actions are created as arrays!")
   let processed = body.map(act => {
     [ === #act.name
-      #act.entries.map(en => {regex.regex-5etools-tags(en)}).join(" ")
+      #act.entries.join(" ")
     ]
   })
 

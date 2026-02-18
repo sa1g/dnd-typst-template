@@ -15,6 +15,8 @@
 #import "5e2014/act-bon-react.typ": render-act-bon-react, render-legendary-action
 #import "process/shortname.typ": compute-shortname
 
+#import "process/tmp.typ"
+
 #let monster-5e(self, body) = context {
   set text(font: self.font.monster.font, size: self.font.monster.size)
   // Monster Name

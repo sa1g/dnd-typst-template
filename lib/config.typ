@@ -1,6 +1,6 @@
 #import "utils.typ"
-
-#import "@preview/transl:0.1.1": transl
+#import "external.typ"
+// #import "@preview/transl:0.1.1": transl
 // \RequirePackage{lettrine}
 // \RequirePackage{Royal}
 
@@ -45,7 +45,7 @@
 #let config-page(
   paper: "us-letter",
   background: "/assets/paper/default.jpg",
-  lang: "en",
+  lang: "it",
   show-part: true,
   show-chapter: true,
   using-parts: true,
@@ -679,6 +679,8 @@
   config-colors(),
   config-fonts(),
   config-style(),
+  
+  ("monster-lang": read("l10n/it.ftl")),
 )
 
 

@@ -124,13 +124,16 @@
     footer-descent: -100pt,
   ) if is-first
 
-  external.transl(data: eval(external.fluent("l10n/", lang: ("en", self.page.lang))))
-
+  // external.transl(data: eval(external.fluent("l10n/", lang: ("en", self.page.lang))))
+  external.transl(data: read("l10n/en.ftl"), lang: "en")
+  external.transl(data: read("l10n/it.ftl"), lang: "it")
+  
   set text(
     font: self.font.global.font,
     size: self.font.global.size,
     weight: self.font.global.weight,
     fill: self.fill.global.text,
+    hyphenate: true,
     tracking: -0.2pt,
     lang: self.page.lang,
     // overhang: true

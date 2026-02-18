@@ -12,9 +12,7 @@
           // keys: name <str>, entries <array of str>
 
           [==== #entry.name
-            #entry.entries.map(en => {
-              regex.regex-5etools-tags(en)
-            }).join(", ")#linebreak()#v(0pt)]
+            #entry.entries.join(", ")#linebreak()#v(0pt)]
         } else {
           panic("not supported entry type: ", type(entry))
         }

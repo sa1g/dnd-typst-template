@@ -67,16 +67,15 @@
     )
 
     if type(entry) == str {
-      [#regex.regex-5etools-tags(entry)]
+      [#entry]
     } else if type(entry) == dictionary {
       assert(
         entry.keys().contains("entry") and entry.keys().contains("hidden"),
         message: "`array-of-spell` -Spell dict entries require both `entry` and `hidden` keys to be present. ",
       )
 
-      // TODO: add regex
       // TODO: check hidden effect
-      [#regex.regex-5etools-tags(entry) #regex.regex-5etools-tags(hidden)]
+      [#entry #hidden]
     }
   })
 
@@ -163,7 +162,7 @@
   let spells = ()
   let keys = body.keys()
   for (name, value) in body {
-    let iter-spells = emph(regex.regex-5etools-tags(value.spells.join(", ")))
+    let iter-spells = emph(value.spells.join(", "))
 
 
     if name == "0" {
@@ -205,7 +204,7 @@
 
     // name, header
     current-spell.push([==== #spell-block.name ])
-    if keys.contains("headerEntries") { current-spell.push([#spell-block.headerEntries.map(en => {regex.regex-5etools-tags(en)}).join(" ")#linebreak()#v(4pt)]) }else{ current-spell.push([#linebreak()])}
+    if keys.contains("headerEntries") { current-spell.push([#spell-block.headerEntries.join(" ")#linebreak()#v(4pt)]) }else{ current-spell.push([#linebreak()])}
 
     // _arrayOfSpell
     if keys.contains("constant") { current-spell.push(show-base-array-of-spell("constant", spell-block.constant)) }

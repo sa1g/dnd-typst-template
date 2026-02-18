@@ -31,8 +31,12 @@
 // #let unicorn = json("tmp_json/ki.json")
 
 
+// #let a = ("a" : read("../lib/l10n/it.ftl"))
 
+// #let a = merge-dicts(default-config, a)
+// #a.a
+// #a.monster-lang
 
 #dnd-monster(config: config, unicorn)
 
-#unicorn
+// #unicorn

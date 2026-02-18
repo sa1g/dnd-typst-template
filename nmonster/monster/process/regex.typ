@@ -1,55 +1,66 @@
+// Many thanks to Boondoc: https://codeberg.org/boondoc/5e-spellbooks/src/commit/d58945c95405a05c12341e71897b5e55edd6733f/includes/render.typst#L41
+
 #import "@local/mythographer-5e:0.0.1": transl
 
 #import "../../utils.typ"
 
 #import "@preview/t4t:0.4.2": get
 
-#let regex-5etools-tags(body) = {
-  let body = body
-  // DC
-  body = str.replace(body, regex("\{@dc\s+(\d+)\}"), match => {
-    get.text[#transl("dc", mode: str) #match.text.find(regex("\d+"))]
-  })
+#let regex-5e = (
+  dc: regex("\{@dc\s+(\d+)\}"),
+  hit: regex("\{@hit\s+(\d+)\}"),
+  h: regex("\{@h\}"),
+  atk: regex("\{@atk [^}]+}"), // mw: melee weapon, rw: ranged weapon, ms: melee spell, rs: ranged spell
+  dice: regex("(?:\d+\s*\()?\{@dice\s+([^}]+)\}\)?"),
+  dice-body: regex("\d+d\d+\s*(?:\+\s*\d+)?"),
+  dmg: regex("(?:\d+\s*\()?\{@damage\s+([^}]+)\}\)?"),
+  spell: regex("\{@spell [^}]+}"), // {@spell <name>}
+  item: regex("\{@item [^|}]+(?:|[^}]+)?}"), // {@item <name>} or {@item <name>|<reference>} )
+  condition: regex("\{@condition [^}]+}"), //{@condition <name>}
+)
 
-  // HIT
-  body = str.replace(body, regex("\{@hit\s+(\d+)\}"), match => {
-    get.text[+ #match.text.find(regex("\d+"))]
-  })
-  // @h (hit:)
-  body = str.replace(body, regex("\{@h\}"), match => {
-    get.text[#transl("hit", mode: str): ]
-  })
 
-  // ATK - mw: melee weapon, rw: ranged weapon, ms: melee spell, rs: ranged spell
-  body = str.replace(body, regex("\{@atk [^}]+}"), match => {
-    get.text[#transl(match.text.trim("{@atk ").trim("}"), mode: str)]
-  })
 
-  // DICE
-  body = str.replace(body, regex("(?:\d+\s*\()?\{@dice\s+([^}]+)\}\)?"), match => {
-    get.text(utils.dnd-dice(match.text.find(regex("\d+d\d+\s*(?:\+\s*\d+)?"))))
-  })
+#let process-5etool-tags(config, body) = {
+  // #transl(to: "es", data: yaml("std.yaml"), "expression")
+    // [#transl(to: "it", data: config.monster-lang, "dc") #text.find(regex("\d+"))]
 
-  // DAMAGE
-  body = str.replace(body, regex("(?:\d+\s*\()?\{@damage\s+([^}]+)\}\)?"), match => {
-    get.text(utils.dnd-dice(match.text.find(regex("\d+d\d+\s*(?:\+\s*\d+)?"))))
-  })
+  show regex-5e.dc: body => {
+    let (text,) = body.text.match(regex-5e.dc).captures
+    [#transl("dc") #text.find(regex("\d+"))]
+  }
 
-  // SPELLS {@spell <name>}
-  body = str.replace(body, regex("\{@spell [^}]+}"), match => {
-    get.text[#match.text.trim("{@spell ").trim("}")]
-  })
+  show regex-5e.hit: body => {
+    [#body.text.find(regex("\d+"))]
+  }
 
-  // ITEM {@item <name>} or {@item <name>|<reference>} )
-  body = str.replace(body, regex("\{@item [^|}]+(?:|[^}]+)?}"), match => {
-    // get.text[#match.text.trim("{@spell ").trim("}")]
-    get.text[#match.text.trim("{@item ").trim("}").split("|").at(0)]
-  })
+  show regex-5e.h: body => {
+    [#transl("hit"): ]
+  }
 
-  // CONDITION {@condition <name>}
-  body = str.replace(body, regex("\{@condition [^}]+}"), match => {
-    get.text[#match.text.trim("{@condition ").trim("}")]
-  })
+  show regex-5e.atk: body => {
+    [#transl(body.text.trim("{@atk ").trim("}"))]
+  }
 
-  return body
+  show regex-5e.dice: body => {
+    utils.dnd-dice(body.text.find(regex-5e.dice-body))
+  }
+
+  show regex-5e.dmg: body => {
+    utils.dnd-dice(body.text.find(regex-5e.dice-body))
+  }
+
+  show regex-5e.spell: body => {
+    [#body.text.trim("{@spell ").trim("}")]
+  }
+
+  show regex-5e.item: body => {
+    [#body.text.trim("{@item ").trim("}").split("|").at(0)]
+  }
+
+  show regex-5e.condition: body => {
+    [#body.text.trim("{@condition ").trim("}")]
+  }
+
+  body
 }

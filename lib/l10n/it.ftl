@@ -439,6 +439,7 @@ condition-immune = { $t ->
    [plur] Immunità alle Condizioni
 }
 
+CD = diobon
 
 in-lair = o {$experience} PE nella tana
 in-laira = o {$experience} PE nella tana
