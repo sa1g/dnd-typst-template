@@ -20,7 +20,7 @@
   date: none,
   // Page
   paper: "us-letter",
-  background: "/assets/paper/default.jpg", // FIXME: this need to be set as an img, not a path!
+  background: image("/assets/paper/default.jpg"),
   lang: "en",
   show-part: true,
   show-chapter: true,
@@ -565,3 +565,105 @@
     ),
   )
 }
+
+
+/////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////
+// SHORTCUTS
+
+#let easy-colors(
+  primary: red,
+  secondary: red,
+  tertiary: red,
+  fourth: black,
+  text-fill: black,
+  readaloud-background: colors.bgtan,
+  monster-ribbon: colors.statblockribbon,
+  monster-background: colors.statblockbg,
+  monster-bar: colors.rulered,
+) = {
+  return default-config(
+    global-text-fill: text-fill,
+    table-title-fill: text-fill,
+    table-header-fill: text-fill,
+    table-body-fill: text-fill,
+    area-text-fill: text-fill,
+    area-heading-2-fill: text-fill,
+    outline-level-4-fill: text-fill,
+    outline-level-5-fill: text-fill,
+    
+    par-fill: fourth,
+    subpar-fill: fourth,
+    sidebar-edge-fill: fourth,
+
+    headers-level-1-fill: primary,
+    headers-level-2-fill: primary,
+    headers-level-3-fill: primary,
+    headers-level-4-fill: primary,
+    headers-level-5-fill: primary,
+    outline-level-1-fill: primary,
+    outline-level-2-fill: primary,
+    outline-level-3-fill: primary,
+    feat-heading-1-fill: primary,
+    feat-heading-2-fill: primary,
+    item-heading-1-fill: primary,
+    area-heading-1-fill: primary,
+    readaloud-edges-fill: primary,
+    spell-title-fill: primary,
+    monster-title-fill: primary,
+
+    table-cell-fill: secondary,
+    commentbox-fill: secondary,
+    sidebar-background-fill: secondary,
+
+    feat-line-fill: tertiary,
+    area-line-fill: tertiary,
+    headers-level-4-line-fill: tertiary,
+    outline-line-fill: tertiary,
+    footer-fill: tertiary,
+    readaloud-background-fill: readaloud-background,
+    monster-bar-fill: monster-background,
+    monster-ribbon-fill: monster-ribbon,
+    monster-background-fill: monster-background,
+  )
+}
+
+/////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////
+// PRE-BUILT STYLES :)
+
+// Pre-Defined config inspired by Tomb of Annihilation
+/// 23-11-25 | Don't use it, it's not ready yet!
+#let toa-config(lang:"en") = (
+  default-config(
+    background: image("/assets/paper/toa.jpg"),
+    lang: lang,
+    // show-part: false,
+    // show-chapter: false,
+    // using-parts: false,
+    table-cell-fill: rgb("d5d9cf"),
+    commentbox-fill: rgb("d5d9cf"),
+    readaloud-background-fill: rgb("dbdcd6"),
+    readaloud-edges-fill: rgb("565d59"),
+    readaloud-transparentize-fill: 30%,
+    sidebar-background-fill: rgb("dbdec8"),
+    footer-fill: colors.titlered,
+    footer-chapter-dx: 3%,
+    footer-chapter-dy: 80%,
+    footer-image-left: image("../assets/footer/toa/l.svg"),
+    footer-image-right: image("../assets/footer/toa/r.svg"),
+    footer-number-dx: -14.3%,
+    footer-number-dy: 77%,
+    headers-level-2-style: smallcaps,
+    outline-level-1-style: none,
+    outline-level-1-size: font-size.normalsize,
+    outline-level-1-weight: font-weight.bold,
+    outline-level-2-style: none,
+    outline-level-2-size: font-size.normalsize,
+    outline-level-2-weight: font-weight.bold,
+    outline-level-3-size: 10pt,
+    outline-level-3-weight: "bold",
+  )
+)
