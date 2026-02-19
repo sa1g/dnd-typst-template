@@ -82,14 +82,9 @@
     ),
   )
 
-  let background = self.page.background
-  if type(background) != content {
-    background = image(self.page.background, height: 100%, width: 100%, fit: "cover")
-  }
-
   set page(
     paper: self.page.paper,
-    background: background,
+    background: self.page.background,
     footer: context {
       {
         let elements = query(selector(heading.where(level: 2, outlined: true)).before(here()))
@@ -125,8 +120,8 @@
   ) if is-first
 
   // external.transl(data: eval(external.fluent("l10n/", lang: ("en", self.page.lang))))
-  external.transl(data: read("l10n/en.ftl"), lang: "en")
   external.transl(data: read("l10n/it.ftl"), lang: "it")
+  external.transl(data: read("l10n/en.ftl"), lang: "en")
   
   set text(
     font: self.global.text.font,
