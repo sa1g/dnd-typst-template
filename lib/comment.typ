@@ -8,18 +8,18 @@
   }
 
   block(
-    fill: self.fill.commentbox.fill,
+    fill: self.commentbox.background.fill,
     inset: 3pt,
     outset: 5pt,
     width: 100%,
   )[
     #set text(
-      font: self.font.commentbox.title.font,
-      size: self.font.commentbox.title.size,
-      weight: self.font.commentbox.title.weight,
+      font: self.commentbox.title.font,
+      size: self.commentbox.title.size,
+      weight: self.commentbox.title.weight,
     )
-    #utils.call-if-fn(self.font.commentbox.title.style, [#title])
-    #set text(font: self.font.commentbox.font, size: self.font.commentbox.size, weight: self.font.commentbox.weight)
+    #utils.call-if-fn(self.commentbox.title.style, [#title])
+    #set text(font: self.commentbox.body.font, size: self.commentbox.body.size, weight: self.commentbox.body.weight)
     #v(-5pt)
     #body
   ]

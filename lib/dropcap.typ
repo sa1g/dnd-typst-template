@@ -13,6 +13,6 @@
     height: 4,
     justify: true,
     gap: 4pt,
-    font: self.font.dropcap.font,
+    font: self.dropcap.font,
   )[#letter #smallcaps[#smalcap] #body]
 })

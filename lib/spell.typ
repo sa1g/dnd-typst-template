@@ -18,9 +18,9 @@
     self = utils.merge-dicts(self, config)
   }
 
-  set text(font: self.font.spell.font, size: self.font.spell.size, weight: "regular")
+  set text(font: self.spell.font, size: self.spell.size, weight: "regular")
 
-  text(fill: self.fill.spell.title)[
+  text(fill: self.spell.fill-title)[
     #smallcaps[#title]
     #linebreak()
   ]
