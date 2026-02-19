@@ -15,17 +15,20 @@
 #import "readaloud.typ": dnd-readaloud
 #import "sidebar.typ": dnd-sidebar
 #import "spell.typ": dnd-spell
-#import "old_monster.typ": (
-  dnd-dice, dnd-monster, dnd-monster-action-entry, dnd-monster-action-melee-entry, dnd-monster-action-ranged-entry,
-  dnd-monster-actions, dnd-monster-basics, dnd-monster-bonus, dnd-monster-bonus-actions, dnd-monster-details,
-  dnd-monster-innate-entry, dnd-monster-innate-spellcasting, dnd-monster-legendary, dnd-monster-legendary-entry,
-  dnd-monster-spell, dnd-monster-spell-entry, dnd-monster-trait-entry, dnd-monster-traits,
-)
+
 #import "page.typ": title-page
 #import "utils.typ": columns-balance, merge-dicts
 
+#import "monster.typ": dnd-monster
 
 // TMP
 #import "external.typ": transl
 #import "utils.typ": call-if-fn
 #import "core.typ": fn-wrapper
+
+// #import "old_monster.typ": (
+//   dnd-dice, dnd-monster, dnd-monster-action-entry, dnd-monster-action-melee-entry, dnd-monster-action-ranged-entry,
+//   dnd-monster-actions, dnd-monster-basics, dnd-monster-bonus, dnd-monster-bonus-actions, dnd-monster-details,
+//   dnd-monster-innate-entry, dnd-monster-innate-spellcasting, dnd-monster-legendary, dnd-monster-legendary-entry,
+//   dnd-monster-spell, dnd-monster-spell-entry, dnd-monster-trait-entry, dnd-monster-traits,
+// )

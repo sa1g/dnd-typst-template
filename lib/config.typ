@@ -193,6 +193,7 @@
   spell-font: font-main-family,
   spell-size: font-size.small,
   // dnd-monster
+  monster-style: 2014,
   monster-title-fill: colors.titlered,
   monster-bar-fill: colors.rulered,
   monster-ribbon-fill: colors.statblockribbon,
@@ -223,6 +224,8 @@
   footer-weight-chapter: font-weight.medium,
   footer-chapter-style: smallcaps,
 ) = {
+  assert(monster-style == 2014, message: "Currently supported monster styles: `2014`")
+
   return (
     info: (
       title: title,
@@ -511,8 +514,13 @@
         size: monster-size,
         font: monster-font,
       ),
-      fill-bar: monster-bar-fill,
-      fill-ribbon: monster-ribbon-fill,
+      bar: (
+        fill: monster-bar-fill,
+      ),
+      ribbon: (
+        fill: monster-ribbon-fill,
+      ),
+      style: monster-style,
     ),
     footer: (
       body: (
