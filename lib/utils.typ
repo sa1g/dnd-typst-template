@@ -232,9 +232,9 @@
   if body.has("children") {
     let amount-dice = (body.children.at(0).text).split(regex("[d]")).map(int)
     let average = dnd-dice-average(amount-dice.at(0), amount-dice.at(1))
-    let modifier = int(body.children.at(body.children.len() - 1).text)
+    let modifier = int(body.children.last().text)  
     let hp-no-sum = average + modifier
-    return [#average (#body)]
+    return [#hp-no-sum (#body)]
   }
 
   return none
