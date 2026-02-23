@@ -32,7 +32,7 @@
   panic()
 }
 
-#let dnd-monster(config: (:), correction-factor: 1, body) = fn-wrapper(self => {
+#let dnd-monster(config: (:), correction-factor: 1, columns: 2, body) = fn-wrapper(self => {
   if config != (:) {
     self = merge-dicts(self, config)
   }
@@ -40,10 +40,10 @@
   // Get shortName (get or compile)
 
   if self.monster.style == 2014 {
-    return render-5e2014(self, correction-factor: correction-factor, body)
+    return render-5e2014(self, correction-factor: correction-factor,  n-cols: columns, body)
   }
 
   if self.monster.style == 2024 {
-    return render-5e2024(self, correction-factor: correction-factor, body)
+    return render-5e2024(self, correction-factor: correction-factor, n-cols: columns, body)
   }
 })

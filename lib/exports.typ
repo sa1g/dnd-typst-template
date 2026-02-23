@@ -14,6 +14,8 @@
 #import "spell.typ": dnd-spell
 
 #import "page.typ": title-page
-#import "utils.typ": columns-balance, merge-dicts
+#import "utils.typ": columns-balance, merge-dicts, dnd-dice
 
 #import "monster.typ": dnd-monster
+
+#import "config-utils.typ": colors, font-initial-family, font-main-family, font-secondary-family, font-size, font-weight
