@@ -1,9 +1,28 @@
-- move what is already made for nmonster directly in the template 
-- rewrite everything to be more "separation compliant" (even if by adding translations this is not much feasible lol)
-	- so that we can have `processing`, `5e2014` style (and a possible future 2024 style :wink)
-	- by doing so also please move all processing in `processing` 
-		- and use `render` for formatting and visualization
-		- of course processing will do some formatting, like newlines, and apply some styles, but comon
-		- 100% separation is unfeasible due to translations "losing" the context (?)
-			- rn i dont know the cause, but if im able to make a maintanable setup, im fine, even if itsn't perfect
-			- enjoy :)
+- resistance, immunity (and another) are ~the same. Merge the code and make it a ""template""
+
+#### Needs to be checked as now i'm actually comparing everything to the specs.
+- ability-modifiers
+- alignment
+- armor-class
+- hit-points
+- name
+- size-type
+- specs
+- speed
+- traits
+
+- ability-modifier
+- challenge-rating
+- condition-immunity
+- immunity
+- language
+- proficiency-bonus
+- resistance
+- save-throw
+- senses
+- skill
+- speed
+- spellcasting
+- trait-action-entry
+- vulnerability
+
