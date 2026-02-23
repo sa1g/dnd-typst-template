@@ -10,6 +10,9 @@
   let dnd-area-counter = counter("dnd-area")
   let dnd-area-counter1 = counter("dnd-area1")
 
+  dnd-area-counter.update(0)
+  dnd-area-counter1.update(0)
+
   dnd-area-counter.step()
   dnd-area-counter1.step()
 
