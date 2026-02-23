@@ -25,28 +25,28 @@
 )
 
 #let font-size = (
-  "tiny": 5pt,
-  "scriptsize": 7pt,
-  "footnotesize": 8pt,
-  "small": 9pt,
-  "normalsize": 10pt,
-  "large": 12pt,
-  "Large": 14.4pt,
-  "LARGE": 17.28pt,
-  "huge": 20.74pt,
-  "Huge": 24.88pt,
+  tiny: 5pt,
+  scriptsize: 7pt,
+  footnotesize: 8pt,
+  small: 9pt,
+  normalsize: 10pt,
+  large: 12pt,
+  Large: 14.4pt,
+  LARGE: 17.28pt,
+  huge: 20.74pt,
+  Huge: 24.88pt,
 )
 
 #let font-weight = (
-  "thin": "thin",
-  "extralight": "extralight",
-  "light": "light",
-  "normal": "regular",
-  "medium": "medium",
-  "semibold": "semibold",
-  "bold": "bold",
-  "extrabold": "extrabold",
-  "black": "black",
+  thin: "thin",
+  extralight: "extralight",
+  light: "light",
+  normal: "regular",
+  medium: "medium",
+  semibold: "semibold",
+  bold: "bold",
+  extrabold: "extrabold",
+  black: "black",
 )
 
 #let font-main-family = "Tex Gyre Bonum"
