@@ -38,6 +38,7 @@
   headers-level-1-size: font-size.Huge,
   headers-level-1-linespread: 0.9pt,
   headers-level-1-style: none,
+  headers-level-1-to: none, // odd, even
   headers-level-2-fill: colors.titlered,
   headers-level-2-font: font-main-family,
   headers-level-2-weight: font-weight.normal,
@@ -258,6 +259,7 @@
         size: headers-level-1-size,
         linespread: headers-level-1-linespread,
         style: headers-level-1-style,
+        to: headers-level-1-to,
       ),
       level-2: (
         fill: headers-level-2-fill,

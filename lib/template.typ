@@ -53,6 +53,7 @@
   )
 }
 
+
 #let dnd-template(
   is-first: true,
   title-page: none,
@@ -142,7 +143,7 @@
   // // HEADERS
 
   set heading(numbering: "1.")
-  show heading.where(level: 1): it => context {
+  show heading.where(level: 1): it => {
     let parts = counter(heading).get()
 
     if parts.last() == 0 {
@@ -157,7 +158,7 @@
       linebreak()
       linebreak()
     } else {
-      pagebreak(weak: true)
+      pagebreak(weak: true, to: self.headers.level-1.to)
       align(center + horizon)[
         #smallcaps[
           #text(
@@ -178,7 +179,7 @@
     }
   }
 
-  show heading.where(level: 2): it => context {
+  show heading.where(level: 2): it => {
     if (
       it.fields().keys().contains("label") and it.label != "dnd-image-heading-section"
         or not it.fields().keys().contains("label")
