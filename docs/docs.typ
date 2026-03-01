@@ -1,5 +1,5 @@
 #import "@preview/min-manual:0.3.0": manual
-#import "lib/exports.typ": *
+#import "@preview/mythographer-5e:0.0.2": *
 
 #show heading.where(level: 1): it => {
   set text(size: 25pt, weight: "bold")

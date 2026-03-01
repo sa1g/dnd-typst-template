@@ -4,7 +4,7 @@
 #import "flex-heading.typ": flex-heading
 #import "config.typ": (
   colors, config-comment, config-dropcap, config-feat, config-item, config-monster, config-readaloud, config-sidebar,
-  config-spell, default-config, easy-colors, toa-config,
+  config-spell, default-config, easy-colors, toa-config, default-config,
 )
 
 #import "area.typ": dnd-area

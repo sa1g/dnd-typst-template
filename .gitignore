@@ -1,6 +1,5 @@
 .vscode
 tmp/
 tmp_json/
-*.json
 new_monster/
 ogivor-curse/
