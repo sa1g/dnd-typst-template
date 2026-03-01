@@ -64,6 +64,5 @@
     ]
   }
 
-  let current = counter(heading).get()
   body
 })

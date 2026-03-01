@@ -16,22 +16,22 @@
 #import "process/shortname.typ": compute-shortname
 
 #let bar-5e2014(self, alignment, dx-mod: 1, dy-mod: 1) = place(
-    alignment,
-    dx: dx-mod * (1em + 2pt),
-    dy: dy-mod * (1em + 2pt),
-    rect(
-        fill: self.monster.ribbon.fill,
-        stroke: (top: 0.5pt + black, bottom: 0.5pt + black),
-        height: 4pt,
-        width: 100% + 2em,
-      )
-  )
+  alignment,
+  dx: dx-mod * (1em + 2pt),
+  dy: dy-mod * (1em + 2pt),
+  rect(
+    fill: self.monster.ribbon.fill,
+    stroke: (top: 0.5pt + black, bottom: 0.5pt + black),
+    height: 4pt,
+    width: 100% + 2em,
+  ),
+)
 
 
 #let monster-5e2014(self, body) = {
   set text(font: self.body.font, size: self.body.size)
   // Monster Name
-  set heading(outlined: false)
+  set heading(outlined: false, numbering: none)
 
   show heading.where(level: 1): it => {
     set text(
@@ -46,7 +46,7 @@
   // Heading w/RedBar (Actions/BonusActions/Reactions/Legendary/Mythic)
   show heading.where(level: 2): it => {
     set text(size: self.subtitle.size, fill: self.title.fill)
-    
+
     call-if-fn(self.subtitle.style, it.body)
     v(-12pt)
     line(stroke: 0.7pt + self.title.fill, length: 100%)

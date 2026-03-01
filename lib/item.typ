@@ -7,7 +7,7 @@
     self = utils.merge-dicts(self, config)
   }
 
-  set heading(outlined: false)
+  set heading(outlined: false, numbering: none)
 
   show heading.where(level: 1): it => {
     set text(
@@ -36,8 +36,8 @@
     fill: self.item.body.fill,
   )
 
-  let current = counter(heading).get()
-  counter(heading).update(0)
+  // let current = counter(heading).get()
+  // counter(heading).update(0)
   body
-  counter(heading).update(current)
+  // counter(heading).update(current)
 })
