@@ -15,7 +15,7 @@
     alignment,
     dx: dx-mod * (1em + 2pt),
     dy: dy-mod * (1em + 2pt),
-    circle(fill: self.readaloud.background.fill-edge, radius: 2pt),
+    circle(fill: self.readaloud.edge.fill, radius: 2pt),
   )
 
   block(
@@ -25,8 +25,8 @@
     above: 1em,
     below: 1em,
     stroke: (
-      left: 1.2pt + self.readaloud.background.fill-edge,
-      right: 1.2pt + self.readaloud.background.fill-edge,
+      left: 1.2pt + self.readaloud.edge.fill,
+      right: 1.2pt + self.readaloud.edge.fill,
     ),
     breakable: true,
   )[

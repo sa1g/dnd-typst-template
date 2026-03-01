@@ -25,7 +25,7 @@
     weight: "regular",
   )
 
-  text(fill: self.spell.fill-title)[
+  text(fill: self.spell.title.fill)[
     #smallcaps[#title]
     #linebreak()
   ]

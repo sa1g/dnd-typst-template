@@ -90,11 +90,11 @@
 }
 
 #let config-dropcap(
-  dropcap-font: font-family.initial,
+  font: font-family.initial,
 ) = {
   return (
     dropcap: (
-      font: dropcap-font,
+      font: font,
     ),
   )
 }
@@ -205,7 +205,9 @@
       background: (
         fill: background-fill,
         transparentize: background-transparentize-fill,
-        fill-edge: edges-fill,
+      ),
+      edge: (
+        fill: edges-fill,
       ),
     ),
   )
@@ -237,8 +239,12 @@
         size: size,
         fill: fill,
       ),
-      fill-background: background-fill,
-      fill-edge: edge-fill,
+      background: (
+        fill: background-fill,
+      ),
+      edge: (
+        fill: edge-fill,
+      ),
     ),
   )
 }
@@ -251,7 +257,9 @@
 ) = {
   return (
     spell: (
-      fill-title: title-fill,
+      title: (
+        fill: title-fill,
+      ),
       font: font,
       size: size,
       fill: fill,
@@ -311,7 +319,8 @@
   table-title-fill: colors.darkest,
   table-header-fill: colors.darkest,
   table-body-fill: colors.darkest,
-  table-cell-fill: colors.PhbLightGreen,
+  table-cell-fill-primary: colors.PhbLightGreen,
+  table-cell-fill-secondary: none,
   table-title-font: font-family.secondary,
   table-title-style: smallcaps,
   table-title-weight: font-weight.bold,
@@ -341,7 +350,7 @@
         fill: table-body-fill,
       ),
       cell: (
-        primary-fill: table-cell-fill,
+        primary-fill: table-cell-fill-primary,
         secondary-fill: none,
       ),
     ),
@@ -474,7 +483,8 @@
   table-title-fill: colors.darkest,
   table-header-fill: colors.darkest,
   table-body-fill: colors.darkest,
-  table-cell-fill: colors.PhbLightGreen,
+  table-cell-fill-primary: colors.PhbLightGreen,
+  table-cell-fill-secondary: none,
   table-title-font: font-family.secondary,
   table-title-style: smallcaps,
   table-title-weight: font-weight.bold,
@@ -799,7 +809,7 @@
     ).commentbox,
   )
 
-  config.insert("dropcap", config-dropcap(dropcap-font: dropcap-font).dropcap)
+  config.insert("dropcap", config-dropcap(font: dropcap-font).dropcap)
 
   config.insert(
     "feat",
@@ -904,7 +914,8 @@
       table-title-fill: table-title-fill,
       table-header-fill: table-header-fill,
       table-body-fill: table-body-fill,
-      table-cell-fill: table-cell-fill,
+      table-cell-fill-primary: table-cell-fill-primary,
+      table-cell-fill-secondary: table-cell-fill-secondary,
       table-title-font: table-title-font,
       table-title-style: table-title-style,
       table-title-weight: table-title-weight,
@@ -976,7 +987,7 @@
     spell-title-fill: primary,
     monster-title-fill: primary,
 
-    table-cell-fill: secondary,
+    table-cell-fill-primary: secondary,
     commentbox-background-fill: secondary,
     sidebar-background-fill: secondary,
 

@@ -11,7 +11,7 @@
     stack(spacing: 0.3pt)[
       #grid(columns: 3)[
         #polygon(
-          fill: self.sidebar.fill-edge,
+          fill: self.sidebar.edge.fill,
           (0em, 0em),
           (1em, 0em),
           (1em, -0.5em),
@@ -20,7 +20,7 @@
         #h(1fr)
       ][
         #polygon(
-          fill: self.sidebar.fill-edge,
+          fill: self.sidebar.edge.fill,
           (0em, 0em),
           (-1em, 0em),
           (-1em, -0.5em),
@@ -29,10 +29,10 @@
     ][
       #box(
         width: 1fr,
-        fill: self.sidebar.fill-background,
+        fill: self.sidebar.background.fill,
         stroke: (
-          top: 0.65pt + self.sidebar.fill-edge,
-          bottom: 0.65pt + self.sidebar.fill-edge,
+          top: 0.65pt + self.sidebar.edge.fill,
+          bottom: 0.65pt + self.sidebar.edge.fill,
         ),
         inset: (
           top: 5pt,
@@ -60,7 +60,7 @@
     ][
       #grid(columns: 3)[
         #polygon(
-          fill: self.sidebar.fill-edge,
+          fill: self.sidebar.edge.fill,
           (0em, 0em),
           (1em, 0em),
           (1em, 0.5em),
@@ -69,7 +69,7 @@
         #h(1fr)
       ][
         #polygon(
-          fill: self.sidebar.fill-edge,
+          fill: self.sidebar.edge.fill,
           (0em, 0em),
           (-1em, 0em),
           (-1em, 0.5em),
