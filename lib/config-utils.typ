@@ -49,11 +49,7 @@
   black: "black",
 )
 
-#let font-main-family = "Tex Gyre Bonum"
-#let font-secondary-family = "Gillius ADF No2"
-#let font-initial-family = "Royal Initialen"
-
-#let font = (
+#let font-family = (
   main: "Tex Gyre Bonum",
   secondary: "Gillius ADF No2",
   initial: "Royal Initialen",
