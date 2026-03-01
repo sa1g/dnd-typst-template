@@ -1,6 +1,9 @@
-#import "@preview/mythographer-5e:0.0.1": *
+#import "@local/mythographer-5e:0.0.1": *
+// #import "lib/exports.typ": *
 
-#show: dnd-template.with()
+#show: dnd-template.with(
+  default-config(lang: "it"),
+)
 
 #title-page(
   title: [The Dark Typst],
@@ -133,82 +136,84 @@
   The layout generally works well up to three columns, though occasional overshoot in the final column may occur.
 ]
 #v(1fr)
-#dnd-monster(
-  col: 2,
-  merge-dicts(
-    dnd-monster-basics(
-      [Monster Foo],
-      [Medium aberration (metasyntactic variable), neutral evil],
-      [9 (12 with #emph[mage armor])],
-      [#dnd-dice[3d8 + 3]],
-      [30 ft., fly 30 ft.],
-      (12, 8, 13, 10, 14, 15),
-    ),
-    dnd-monster-details(
-      senses: [darkvision 60 ft., passive Perception 10],
-      languages: [Common, Goblin, Undercommon],
-      challenge: 1,
-      proficiency-bonus: [1],
-    ),
-    dnd-monster-innate-spellcasting(
-      description: [Foo's spellcasting ability is Charisma (spell save DC 12, +4 to hit with spell attacks). It can innately cast the following spells, requiring no material components:],
-      dnd-monster-innate-entry(0, [Misty Steps]),
-      dnd-monster-innate-entry(3, [Fog Cloud, Rope Trick]),
-      dnd-monster-innate-entry(1, [Identify]),
-    ),
-    dnd-monster-traits(
-      dnd-monster-trait-entry(
-        [Duergar Resilience],
-        [The duergar has advantage on saving throws against spells and the charmed, paralyzed, and poisoned conditions.],
-      ),
-    ),
-    dnd-monster-spell(
-      description: [Foo is a 2nd-level spellcaster. Its spellcasting ability is Charisma (spell save DC 12, +4 to hit with spell attacks). It has the following sorcerer spells prepared:],
-      dnd-monster-spell-entry(0, 0, [Blade Ward, Fire Bolt, Light, Shocking Grasp]),
-      dnd-monster-spell-entry(1, 3, [Burning Hands, Mage Armor, Shield]),
-    ),
-    dnd-monster-actions(
-      dnd-monster-action-entry(
-        name: [Dagger],
-        type: [weapon],
-        mod: [+3],
-        dmg: dnd-dice([1d4 + 1]),
-        dmg-type: [piercing],
-      ),
-      dnd-monster-action-melee-entry(
-        name: [Flame Tongue Longsword],
-        mod: [+3],
-        dmg: dnd-dice([1d8 + 1]),
-        dmg-type: [slashing],
-        plus-dmg: dnd-dice([2d6]),
-        plus-dmg-type: [fire],
-        or-dmg: dnd-dice([1d10 + 1]),
-        or-dmg-when: [if used with two hands],
-      ),
-      dnd-monster-action-ranged-entry(
-        name: [Assassin's Light Crossbow],
-        mod: [+1],
-        range: [80/320],
-        dmg: dnd-dice([1d8]),
-        dmg-type: [piercing],
-        extra: [, and the target must make a DC 15 Constitution saving throw, taking 24 (7d6) poison damage on a failed save, or half as much damage on a successful one.],
-      ),
-    ),
-    dnd-monster-bonus-actions(
-      dnd-monster-bonus([Shadow Blend], [#lorem(10)]),
-      dnd-monster-bonus([Shadow Blend1], [ASD]),
-    ),
-    dnd-monster-legendary(
-      [The foo can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The foo regains spent legendary actions at the start of its turn.],
-      dnd-monster-legendary-entry([Move], [The foo moves up to its speed.]),
-      dnd-monster-legendary-entry([Danger Attack], [The foo makes a dagger attack.]),
-      dnd-monster-legendary-entry(
-        [Create Contract (Costs 3 Actions)],
-        [The foo presents a contract in a language it knows and waves it in the face of a creature within 10 feet. The creature must make a DC 10 Intelligence saving throw. On a failure, the creature is incapacitated until the start of the foo's next turn. A creature who cannot read the language in which the contract is written has advantage on this saving throw.],
-      ),
-    ),
-  ),
-)
+#dnd-monster(json("unicorn.json"), correction-factor: 1.06)
+
+// #dnd-monster(
+//   col: 2,
+//   merge-dicts(
+//     dnd-monster-basics(
+//       [Monster Foo],
+//       [Medium aberration (metasyntactic variable), neutral evil],
+//       [9 (12 with #emph[mage armor])],
+//       [#dnd-dice[3d8 + 3]],
+//       [30 ft., fly 30 ft.],
+//       (12, 8, 13, 10, 14, 15),
+//     ),
+//     dnd-monster-details(
+//       senses: [darkvision 60 ft., passive Perception 10],
+//       languages: [Common, Goblin, Undercommon],
+//       challenge: 1,
+//       proficiency-bonus: [1],
+//     ),
+//     dnd-monster-innate-spellcasting(
+//       description: [Foo's spellcasting ability is Charisma (spell save DC 12, +4 to hit with spell attacks). It can innately cast the following spells, requiring no material components:],
+//       dnd-monster-innate-entry(0, [Misty Steps]),
+//       dnd-monster-innate-entry(3, [Fog Cloud, Rope Trick]),
+//       dnd-monster-innate-entry(1, [Identify]),
+//     ),
+//     dnd-monster-traits(
+//       dnd-monster-trait-entry(
+//         [Duergar Resilience],
+//         [The duergar has advantage on saving throws against spells and the charmed, paralyzed, and poisoned conditions.],
+//       ),
+//     ),
+//     dnd-monster-spell(
+//       description: [Foo is a 2nd-level spellcaster. Its spellcasting ability is Charisma (spell save DC 12, +4 to hit with spell attacks). It has the following sorcerer spells prepared:],
+//       dnd-monster-spell-entry(0, 0, [Blade Ward, Fire Bolt, Light, Shocking Grasp]),
+//       dnd-monster-spell-entry(1, 3, [Burning Hands, Mage Armor, Shield]),
+//     ),
+//     dnd-monster-actions(
+//       dnd-monster-action-entry(
+//         name: [Dagger],
+//         type: [weapon],
+//         mod: [+3],
+//         dmg: dnd-dice([1d4 + 1]),
+//         dmg-type: [piercing],
+//       ),
+//       dnd-monster-action-melee-entry(
+//         name: [Flame Tongue Longsword],
+//         mod: [+3],
+//         dmg: dnd-dice([1d8 + 1]),
+//         dmg-type: [slashing],
+//         plus-dmg: dnd-dice([2d6]),
+//         plus-dmg-type: [fire],
+//         or-dmg: dnd-dice([1d10 + 1]),
+//         or-dmg-when: [if used with two hands],
+//       ),
+//       dnd-monster-action-ranged-entry(
+//         name: [Assassin's Light Crossbow],
+//         mod: [+1],
+//         range: [80/320],
+//         dmg: dnd-dice([1d8]),
+//         dmg-type: [piercing],
+//         extra: [, and the target must make a DC 15 Constitution saving throw, taking 24 (7d6) poison damage on a failed save, or half as much damage on a successful one.],
+//       ),
+//     ),
+//     dnd-monster-bonus-actions(
+//       dnd-monster-bonus([Shadow Blend], [#lorem(10)]),
+//       dnd-monster-bonus([Shadow Blend1], [ASD]),
+//     ),
+//     dnd-monster-legendary(
+//       [The foo can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The foo regains spent legendary actions at the start of its turn.],
+//       dnd-monster-legendary-entry([Move], [The foo moves up to its speed.]),
+//       dnd-monster-legendary-entry([Danger Attack], [The foo makes a dagger attack.]),
+//       dnd-monster-legendary-entry(
+//         [Create Contract (Costs 3 Actions)],
+//         [The foo presents a contract in a language it knows and waves it in the face of a creature within 10 feet. The creature must make a DC 10 Intelligence saving throw. On a failure, the creature is incapacitated until the start of the foo's next turn. A creature who cannot read the language in which the contract is written has advantage on this saving throw.],
+//       ),
+//     ),
+//   ),
+// )
 
 == Style and Colors
 #columns(2)[
@@ -238,12 +243,11 @@
 
   Colors can also be applied inline. Below is an example:
   #dnd-sidebar(
-    config: easy-colors(tertiary: rgb(100, 0, 60)),
+    config: easy-colors(text-fill: white, tertiary: rgb(100, 0, 60)),
   )[
-    #set text(fill: white)
     Behold the DndSidebar!
   ][
-    #set text(fill: white)
+
     The `dnd-sidebar` is used as a sidebar. It does not break across columns and is best paired with a figure environment to float it to a page corner, allowing surrounding text to wrap around it.
   ]
   A future release will introduce more streamlined inline support for text color injection, making the process cleaner and more intuitive.

@@ -19,7 +19,7 @@
   body
 }
 
-#let config = default-config(lang: "it")
+#let config = default-config(lang: "en")
 #show link: underline
 
 #let example(alignment: center, body) = {
@@ -913,7 +913,7 @@ This is very easy to do:
     column-gutter: 60pt,
     [
       #template(config)[
-        #dnd-comment(config: config-comment(fill: rgb(100, 160, 40)))[This is a Comment Box!][
+        #dnd-comment(config: config-comment(background-fill: rgb(100, 160, 40)))[This is a Comment Box!][
           #lorem(10)
         ]
       ]
@@ -958,7 +958,12 @@ This is very easy to do:
     column-gutter: 60pt,
     [
       #template(config)[
-        #dnd-sidebar(config: config-sidebar(edge-fill: rgb(100, 80, 60), background-fill: black))[
+        #dnd-sidebar(config: config-sidebar(
+          edge-fill: rgb(100, 80, 60),
+          background-fill: black,
+          fill: white,
+          title-fill: green,
+        ))[
           Behold the DndSidebar!
         ][
           #lorem(20)
