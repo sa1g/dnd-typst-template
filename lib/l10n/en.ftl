@@ -2,7 +2,7 @@ part = Part
 
 chapter = { $t ->
   *[sing] Chapter
-   [plur] Chapters
+   [plur] Chapter
    [short] Ch.
 }
 
@@ -13,148 +13,149 @@ component = { $t ->
   *[sing] Component
    [plur] Components
 }
-duration = Duration
+duration = duration
 
 ## Feat
 prerequisite = Prerequisite
+
 
 ###############################################
 ##### Monster
 
 ### Size
-# F = Infinitesimale, D = Minuscola, T = Minuscola, S = Piccola, M = Media, L = Grande, H = Enorme, G = Mastodontica, C = Colossale, V = Variabile
+# F: Fine,  D: Diminutive,  T: Tiny,  S: Small,  M: Medium,  L: Large,  H: Huge,  G: Gargantuan,  C: Colossal,  V: Varies.
 msize =
     { $msize ->
          [F]
-            { $type ->
-               [aberration] Infinitesimale
-               [beast] Infinitesimale
-               [celestial] Infinitesimale
-               [construct] Infinitesimale
-               [dragon] Infinitesimale
-               [elemental] Infinitesimale
-               [fey] Infinitesimale
-               [fiend] Infinitesimale
-               [giant] Infinitesimale
-               [humanoid] Infinitesimale
-               [monstrosity] Infinitesimale
-               [ooze] Infinitesimale
-               [plant] Infinitesimale
-               [undead] Infinitesimale
-               *[other] Infinitesimale
+            { $mtype ->
+               [aberration] Fine
+               [beast] Fine
+               [celestial] Fine
+               [construct] Fine
+               [dragon] Fine
+               [elemental] Fine
+               [fey] Fine
+               [fiend] Fine
+               [giant] Fine
+               [humanoid] Fine
+               [monstrosity] Fine
+               [ooze] Fine
+               [plant] Fine
+               [undead] Fine
+               *[other] Fine
             }
          [D]
-            { $type ->
-               [aberration] Minuscola
-               [beast] Minuscola
-               [celestial] Minuscolo
-               [construct] Minuscolo
-               [dragon] Minuscolo
-               [elemental] Minuscolo
-               [fey] Minuscolo
-               [fiend] Minuscolo
-               [giant] Minuscolo
-               [humanoid] Minuscolo
-               [monstrosity] Minuscola
-               [ooze] Minuscola
-               [plant] Minuscola
-               [undead] Minuscolo
-               *[other] Minuscolo
+            { $mtype ->
+               [aberration] Diminutive
+               [beast] Diminutive
+               [celestial] Diminutive
+               [construct] Diminutive
+               [dragon] Diminutive
+               [elemental] Diminutive
+               [fey] Diminutive
+               [fiend] Diminutive
+               [giant] Diminutive
+               [humanoid] Diminutive
+               [monstrosity] Diminutive
+               [ooze] Diminutive
+               [plant] Diminutive
+               [undead] Diminutive
+               *[other] Diminutive
             }
          [T]
-            { $type ->
-               [aberration] Minuscola
-               [beast] Minuscola
-               [celestial] Minuscolo
-               [construct] Minuscolo
-               [dragon] Minuscolo
-               [elemental] Minuscolo
-               [fey] Minuscolo
-               [fiend] Minuscolo
-               [giant] Minuscolo
-               [humanoid] Minuscolo
-               [monstrosity] Minuscola
-               [ooze] Minuscola
-               [plant] Minuscola
-               [undead] Minuscolo
-               *[other] Minuscolo
+            { $mtype ->
+               [aberration] Tiny
+               [beast] Tiny
+               [celestial] Tiny
+               [construct] Tiny
+               [dragon] Tiny
+               [elemental] Tiny
+               [fey] Tiny
+               [fiend] Tiny
+               [giant] Tiny
+               [humanoid] Tiny
+               [monstrosity] Tiny
+               [ooze] Tiny
+               [plant] Tiny
+               [undead] Tiny
+               *[other] Tiny
             }
          [S]
-            { $type ->
-               [aberration] Piccola
-               [beast] Piccola
-               [celestial] Piccolo
-               [construct] Piccolo
-               [dragon] Piccolo
-               [elemental] Piccolo
-               [fey] Piccolo
-               [fiend] Piccolo
-               [giant] Piccolo
-               [humanoid] Piccolo
-               [monstrosity] Piccola
-               [ooze] Piccola
-               [plant] Piccola
-               [undead] Piccolo
-               *[other] Piccolo
+            { $mtype ->
+               [aberration] Small
+               [beast] Small
+               [celestial] Small
+               [construct] Small
+               [dragon] Small
+               [elemental] Small
+               [fey] Small
+               [fiend] Small
+               [giant] Small
+               [humanoid] Small
+               [monstrosity] Small
+               [ooze] Small
+               [plant] Small
+               [undead] Small
+               *[other] Small
             }
          [M]
-            { $type ->
-               [aberration] Media
-               [beast] Media
-               [celestial] Medio
-               [construct] Medio
-               [dragon] Medio
-               [elemental] Medio
-               [fey] Medio
-               [fiend] Medio
-               [giant] Medio
-               [humanoid] Medio
-               [monstrosity] Media
-               [ooze] Media
-               [plant] Media
-               [undead] Medio
-               *[other] Medio
+            { $mtype ->
+               [aberration] Medium
+               [beast] Medium
+               [celestial] Medium
+               [construct] Medium
+               [dragon] Medium
+               [elemental] Medium
+               [fey] Medium
+               [fiend] Medium
+               [giant] Medium
+               [humanoid] Medium
+               [monstrosity] Medium
+               [ooze] Medium
+               [plant] Medium
+               [undead] Medium
+               *[other] Medium
             }
          [L]
-            { $type ->
-               [aberration] Grande
-               [beast] Grande
-               [celestial] Grande
-               [construct] Grande
-               [dragon] Grande
-               [elemental] Grande
-               [fey] Grande
-               [fiend] Grande
-               [giant] Grande
-               [humanoid] Grande
-               [monstrosity] Grande
-               [ooze] Grande 
-               [plant] Grande
-               [undead] Grande
-               *[other] Grande
+            { $mtype ->
+               [aberration] Large
+               [beast] Large
+               [celestial] Large
+               [construct] Large
+               [dragon] Large
+               [elemental] Large
+               [fey] Large
+               [fiend] Large
+               [giant] Large
+               [humanoid] Large
+               [monstrosity] Large
+               [ooze] Large 
+               [plant] Large
+               [undead] Large
+               *[other] Large
             }
          [H]
-            { $type ->
-               [aberration] Enorme
-               [beast] Enorme
-               [celestial] Enorme
-               [construct] Enorme
-               [dragon] Enorme
-               [elemental] Enorme
-               [fey] Enorme
-               [fiend] Enorme
-               [giant] Enorme
-               [humanoid] Enorme
-               [monstrosity] Enorme
-               [ooze] Enorme
-               [plant] Enorme
-               [undead] Enorme
-               *[other] Enorme
+            { $mtype ->
+               [aberration] Huge
+               [beast] Huge
+               [celestial] Huge
+               [construct] Huge
+               [dragon] Huge
+               [elemental] Huge
+               [fey] Huge
+               [fiend] Huge
+               [giant] Huge
+               [humanoid] Huge
+               [monstrosity] Huge
+               [ooze] Huge
+               [plant] Huge
+               [undead] Huge
+               *[other] Huge
             }
          [G]
-            { $type ->
-               [aberration] Mastodontica
-               [beast] Mastodontica
+            { $mtype ->
+               [aberration] Gargantuan
+               [beast] Gargantuan
                [celestial] Mastodontico
                [construct] Mastodontico
                [dragon] Mastodontico
@@ -163,49 +164,49 @@ msize =
                [fiend] Mastodontico
                [giant] Mastodontico
                [humanoid] Mastodontico
-               [monstrosity] Mastodontica
-               [ooze] Mastodontica
-               [plant] Mastodontica
+               [monstrosity] Gargantuan
+               [ooze] Gargantuan
+               [plant] Gargantuan
                [undead] Mastodontico
                *[other] Mastodontico
             }
          [C]
-            { $type ->
-               [aberration] Colossale
-               [beast] Colossale
-               [celestial] Colossale
-               [construct] Colossale
-               [dragon] Colossale
-               [elemental] Colossale
-               [fey] Colossale
-               [fiend] Colossale
-               [giant] Colossale
-               [humanoid] Colossale
-               [monstrosity] Colossale
-               [ooze] Colossale
-               [plant] Colossale
-               [undead] Colossale
-               *[other] Colossale
+            { $mtype ->
+               [aberration] Colossal
+               [beast] Colossal
+               [celestial] Colossal
+               [construct] Colossal
+               [dragon] Colossal
+               [elemental] Colossal
+               [fey] Colossal
+               [fiend] Colossal
+               [giant] Colossal
+               [humanoid] Colossal
+               [monstrosity] Colossal
+               [ooze] Colossal
+               [plant] Colossal
+               [undead] Colossal
+               *[other] Colossal
             }  
          [V]
-            { $type ->
-               [aberration] Variabile
-               [beast] Variabile
-               [celestial] Variabile
-               [construct] Variabile
-               [dragon] Variabile
-               [elemental] Variabile
-               [fey] Variabile
-               [fiend] Variabile
-               [giant] Variabile
-               [humanoid] Variabile
-               [monstrosity] Variabile
-               [ooze] Variabile
-               [plant] Variabile
-               [undead] Variabile
-               *[other] Variabile
+            { $mtype ->
+               [aberration] Varies
+               [beast] Varies
+               [celestial] Varies
+               [construct] Varies
+               [dragon] Varies
+               [elemental] Varies
+               [fey] Varies
+               [fiend] Varies
+               [giant] Varies
+               [humanoid] Varies
+               [monstrosity] Varies
+               [ooze] Varies
+               [plant] Varies
+               [undead] Varies
+               *[other] Varies
             }
-       *[other] Sconosciuta
+       *[other] Unknown
     }
 
 
@@ -213,28 +214,29 @@ msize =
 ### type
 mtype =
     { $mtype ->
-         [aberration] Aberrazione
-         [beast] Bestia
-         [celestial] Celestiale
-         [construct] Costrutto
-         [dragon] Drago
-         [elemental] Elementale
-         [fey] Fatato
-         [fiend] Demone
-         [giant] Gigante
-         [humanoid] Umanoide
-         [monstrosity] Mostruosità
-         [ooze] Melma
-         [plant] Pianta
-         [undead] Non Morto
-         *[other] Creatura
+         [aberration] Aberration
+         [beast] Beast
+         [celestial] Celestial
+         [construct] Construct
+         [dragon] Dragon
+         [elemental] Elemental
+         [fey] Fay
+         [fiend] Fiend
+         [giant] Giant
+         [humanoid] Humanoid
+         [monstrosity] Monstrosity
+         [ooze] Ooze
+         [plant] Plany
+         [undead] Undead
+         *[other] Creature
     }
 
 creature-description =
      { mtype } { msize }
 
+
 ### Alignment
-L = Lawful
+L = Legal
 N = Neutral
 NX = Neutral
 NY = Neutral
@@ -246,7 +248,6 @@ A = Any Alignment
 
 LNXCNYE = Any Non-Good Alignment
 LNXCNYG = Any Good Alignment
-
 
 ### Speed
 stype = 
@@ -260,8 +261,9 @@ stype =
    }
 
 
-# Misc
-dc = DC
+
+### Misc
+dc = CD
 armor-class = Armor Class
 hit-points = Hit Points
 speed = Speed
@@ -269,11 +271,9 @@ speed = Speed
 
 
 
-
-
-### Abilities
+### Ability Score
 str = { $t ->
-   *[short] str
+   *[short] STR
    [long] strength
 }
 dex = { $t ->
@@ -298,19 +298,22 @@ cha = { $t ->
 }
 
 ### Attacks
-ms = Melee Spell Attack
-rs = Ranged Spell Attack
+ms = Magic Melee Attack
+rs = Magic Ranged Attack
 mw = Melee Weapon Attack
 rw = Ranged Weapon Attack
+
+### TRAITS
 saving-throw = { $t ->
-  *[sing] Saving Throw
-   [plur] Saving Throws
+   [sing] Saving Thow
+   *[plur] Saving Throws
 }
+
 skill = { $t ->
-  *[sing] Skill
-   [plur] Skills
+   *[sing] Ability
+   [plur] Abilities
    [acrobatics] acrobatics
-   [animal] animal
+   [animal] animal handling
    [arcana] arcana
    [athletics] athletics
    [deception] deception
@@ -329,10 +332,9 @@ skill = { $t ->
    [survival] survival
 }
 
-
 senses = { $t ->
-   *[sing] Sensi
-   [plur] Sensi
+   *[sing] Sense
+   [plur] Senses
    [blindsight] blindsight
    [darkvision] darkvision
    [tremorsense] tremorsense
@@ -341,6 +343,7 @@ senses = { $t ->
 }
 
 
+ 
 languages = { $t ->
    *[sing] Language
    [plur] Languages
@@ -376,36 +379,39 @@ languages = { $t ->
    [U] Undercommon
 }
 
+
 damage-type = { $t ->
-  [acid] acid
-  [bludgeoning] bludgeoning
-  [cold] cold
-  [fire] fire
-  [force] force
-  [lightning] lightning
-  [necrotic] necrotic
-  [piercing] piercing
-  [poison] poison
-  [psychic] psychic
-  [radiant] radiant
-  [slashing] slashing
-  [thunder] thunder
-  *[other] other damage
+   [acid] acid
+   [bludgeoning] bludgeoning
+   [cold] cold
+   [fire] fire
+   [force] force
+   [lightning] lightning
+   [necrotic] necrotic
+   [piercing] piercing
+   [poison] poison
+   [psychic] psychic
+   [radiant] radiant
+   [slashing] slashing
+   [thunder] thunder
+   *[other] other damage
 }
 
-damage-vulnerability = { $t ->
+
+
+vulnerable = { $t ->
   *[sing] Damage Vulnerability
-   [plur] Damage Vulnerabilities
+   [plur] Damage Vulnerability
 }
 
 resist = { $t ->
   *[sing] Damage Resistance
-   [plur] Damage Resistances
+   [plur] Damage Resistance
 } 
 
 immune = { $t ->
    *[sing] Damage Immunity
-    [plur] Damage Immunities
+    [plur] Damage Immunity
 }
 
 data-condition = { $t -> 
@@ -417,10 +423,10 @@ data-condition = { $t ->
    [grappled] grappled 
    [incapacitated] incapacitated 
    [invisible] invisible 
-   [paralyzed] paralyzed 
+   [paralyzed] paralyzed
    [petrified] petrified 
    [poisoned] poisoned 
-   [prone] prone 
+   [prone] prone
    [restrained] restrained 
    [stunned] stunned 
    [unconscious] unconscious 
@@ -428,32 +434,43 @@ data-condition = { $t ->
    *[other] other condition
 } 
 
-conditionImmune = { $t ->
+condition-immune = { $t ->
   *[sing] Condition Immunity
    [plur] Condition Immunities
 }
 
-in-lair = {$t ->
-   *[other] or $t XP in lair 
-}
+in-lair = or {$experience} XP in Lair
+in-laira = or {$experience} XP in Lair
+
 xp = XP
-cr = Challenge Rating
+cr = CR
 proficiency-bonus = Proficiency Bonus
 
 
-## Actions
-actions = Actions
+################################################
+#### Actions | Reactions | Bonus | Legendary
+action = Actions
+reaction = Reactions
+bonus = Bonus Actions
+legendary = Legendary Actions
+
+legendary-header = Legendary Action Uses: {$amount}. Immediately after another creature's turn, {$shortName} can expend a use to take one of the following actions. {$shortName} regains all expended uses at the start of each of its turns.
+
+legendary-header-lair = Legendary Action Uses: {$amount} ({$lairAmount} in Lair). Immediately after another creature's turn, {$shortName} can expend a use to take one of the following actions. {$shortName} regains all expended uses at the start of each of its turns.
+
+
+
 attack = Attack
 to-hit = to hit
-hit = hit
+hit = Hit
 or = or
 when = when
 
 ## Innate
 innate-spellcasting = Innate Spellcasting
 at-will = At will
-day-each = day each
-day = Day
+day-each = each day
+day = day
 
 ## Spellcasting
 spellcasting = Spellcasting
@@ -465,12 +482,8 @@ slot = { $t ->
 }
 
 level = { $n ->
-    [1] { $n }st level
-    [2] { $n }nd level
-    [3] { $n }rd level
-   *[other] { $n }th level
+   *[other] { $n }° level
 }
-
 
 ## Bonus Action
 bonus-actions = Bonus Actions
