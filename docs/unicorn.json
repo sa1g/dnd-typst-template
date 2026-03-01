@@ -1,0 +1,161 @@
+{
+    "name": "Unicorn",
+    "size": [
+        "L"
+    ],
+    "type": "celestial",
+    "source": "MM",
+    "alignment": [
+        "L",
+        "G"
+    ],
+    "ac": [
+        12
+    ],
+    "hp": {
+        "average": 67,
+        "formula": "9d10 + 18"
+    },
+    "speed": {
+        "walk": 50
+    },
+    "str": 18,
+    "dex": 14,
+    "con": 15,
+    "int": 11,
+    "wis": 17,
+    "cha": 16,
+    "immune": [
+        "poison"
+    ],
+    "conditionImmune": [
+        "charmed",
+        "paralyzed",
+        "poisoned"
+    ],
+    "senses": [
+        "darkvision 60 ft."
+    ],
+    "passive": 13,
+    "languages": [
+        "Celestial",
+        "Elvish",
+        "Sylvan",
+        "telepathy 60 ft."
+    ],
+    "cr": "5",
+    "trait": [
+        {
+            "name": "Charge",
+            "entries": [
+                "If the unicorn moves at least 20 ft. straight toward a target and then hits it with a horn attack on the same turn, the target takes an extra 9 ({@dice 2d8}) piercing damage. If the target is a creature, it must succeed on a {@dc 15} Strength saving throw or be knocked prone."
+            ]
+        },
+        {
+            "name": "Magic Resistance",
+            "entries": [
+                "The unicorn has advantage on saving throws against spells and other magical effects."
+            ]
+        },
+        {
+            "name": "Magic Weapons",
+            "entries": [
+                "The unicorn's weapon attacks are magical."
+            ]
+        }
+    ],
+    "action": [
+        {
+            "name": "Multiattack",
+            "entries": [
+                "The unicorn makes two attacks: one with its hooves and one with its horn."
+            ]
+        },
+        {
+            "name": "Hooves",
+            "entries": [
+                "{@atk mw} {@hit 7} to hit, reach 5 ft., one target. Hit: 11 ({@damage 2d6 + 4}) bludgeoning damage."
+            ]
+        },
+        {
+            "name": "Horn",
+            "entries": [
+                "{@atk mw} {@hit 7} to hit, reach 5 ft., one target. Hit: 8 ({@damage 1d8 + 4}) piercing damage."
+            ]
+        },
+        {
+            "name": "Healing Touch (3/Day)",
+            "entries": [
+                "The unicorn touches another creature with its horn. The target magically regains 11 ({@dice 2d8 + 2}) hit points. In addition, the touch removes all diseases and neutralizes all poisons afflicting the target."
+            ]
+        },
+        {
+            "name": "Teleport (1/Day)",
+            "entries": [
+                "The unicorn magically teleports itself and up to three willing creatures it can see within 5 feet of it, along with any equipment they are wearing or carrying, to a location the unicorn is familiar with, up to 1 mile away."
+            ]
+        }
+    ],
+    "legendaryGroup": {
+        "name": "Unicorn",
+        "source": "MM"
+    },
+    "legendary": [
+        {
+            "name": "Hooves",
+            "entries": [
+                "The unicorn makes one attack with its hooves."
+            ]
+        },
+        {
+            "name": "Shimmering Shield (Costs 2 Actions)",
+            "entries": [
+                "The unicorn creates a shimmering, magical field around itself or another creature it can see within 60 feet of it. The target gains a +2 bonus to AC until the end of the unicorn's next turn."
+            ]
+        },
+        {
+            "name": "Heal Self (Costs 3 Actions)",
+            "entries": [
+                "The unicorn magically regains 11 ({@dice 2d8 + 2}) hit points."
+            ]
+        }
+    ],
+    "page": 294,
+    "spellcasting": [
+        {
+            "name": "Innate Spellcasting",
+            "type": "spellcasting",
+            "headerEntries": [
+                "The unicorn's innate spellcasting ability is Charisma (spell save {@dc 14}). The unicorn can innately cast the following spells, requiring no components:"
+            ],
+            "will": [
+                "{@spell detect evil and good}",
+                "{@spell druidcraft}",
+                "{@spell pass without trace}"
+            ],
+            "daily": {
+                "1e": [
+                    "{@spell calm emotions}",
+                    "{@spell dispel evil and good}",
+                    "{@spell entangle}"
+                ]
+            },
+            "ability": "cha"
+        }
+    ],
+    "environment": [
+        "forest"
+    ],
+    "soundClip": {
+        "type": "internal",
+        "path": "bestiary/unicorn.mp3"
+    },
+    "traitTags": [
+        "Charge",
+        "Magic Resistance",
+        "Magic Weapons"
+    ],
+    "actionTags": [
+        "Multiattack"
+    ]
+}

@@ -11,7 +11,7 @@
     stack(spacing: 0.3pt)[
       #grid(columns: 3)[
         #polygon(
-          fill: self.fill.sidebar.edge,
+          fill: self.sidebar.edge.fill,
           (0em, 0em),
           (1em, 0em),
           (1em, -0.5em),
@@ -20,7 +20,7 @@
         #h(1fr)
       ][
         #polygon(
-          fill: self.fill.sidebar.edge,
+          fill: self.sidebar.edge.fill,
           (0em, 0em),
           (-1em, 0em),
           (-1em, -0.5em),
@@ -29,10 +29,10 @@
     ][
       #box(
         width: 1fr,
-        fill: self.fill.sidebar.background,
+        fill: self.sidebar.background.fill,
         stroke: (
-          top: 0.65pt + self.fill.sidebar.edge,
-          bottom: 0.65pt + self.fill.sidebar.edge,
+          top: 0.65pt + self.sidebar.edge.fill,
+          bottom: 0.65pt + self.sidebar.edge.fill,
         ),
         inset: (
           top: 5pt,
@@ -41,24 +41,26 @@
           right: 8pt,
         ),
       )[
-        #set text(
-          size: self.font.sidebar.title.size,
-          font: self.font.sidebar.title.font,
-          weight: self.font.sidebar.title.weight,
+        #text(
+          size: self.sidebar.title.size,
+          font: self.sidebar.title.font,
+          weight: self.sidebar.title.weight,
+          fill: self.sidebar.title.fill,
+          utils.call-if-fn(self.sidebar.title.style, [#title]),
         )
-        #utils.call-if-fn(self.font.sidebar.title.style, [#title])
         #v(-5pt)
         #set text(
-          size: self.font.sidebar.size,
-          font: self.font.sidebar.font,
+          size: self.sidebar.body.size,
+          font: self.sidebar.body.font,
           weight: "regular",
+          fill: self.sidebar.body.fill,
         )
         #body
       ]
     ][
       #grid(columns: 3)[
         #polygon(
-          fill: self.fill.sidebar.edge,
+          fill: self.sidebar.edge.fill,
           (0em, 0em),
           (1em, 0em),
           (1em, 0.5em),
@@ -67,7 +69,7 @@
         #h(1fr)
       ][
         #polygon(
-          fill: self.fill.sidebar.edge,
+          fill: self.sidebar.edge.fill,
           (0em, 0em),
           (-1em, 0em),
           (-1em, 0.5em),

@@ -9,24 +9,24 @@
     self = utils.merge-dicts(self, config)
   }
 
-  set text(size: 0.82em, font: self.font.readaloud.font)
+  set text(size: self.readaloud.body.size, font: self.readaloud.body.font)
 
   let corner(alignment, dx-mod: 1, dy-mod: 1) = place(
     alignment,
     dx: dx-mod * (1em + 2pt),
     dy: dy-mod * (1em + 2pt),
-    circle(fill: self.fill.readaloud.edges, radius: 2pt),
+    circle(fill: self.readaloud.edge.fill, radius: 2pt),
   )
 
   block(
     width: 100%,
     inset: 1em,
-    fill: self.fill.readaloud.background.transparentize(self.fill.readaloud.transparentize),
+    fill: self.readaloud.background.fill.transparentize(self.readaloud.background.transparentize),
     above: 1em,
     below: 1em,
     stroke: (
-      left: 1.2pt + self.fill.readaloud.edges,
-      right: 1.2pt + self.fill.readaloud.edges,
+      left: 1.2pt + self.readaloud.edge.fill,
+      right: 1.2pt + self.readaloud.edge.fill,
     ),
     breakable: true,
   )[

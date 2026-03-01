@@ -18,9 +18,14 @@
     self = utils.merge-dicts(self, config)
   }
 
-  set text(font: self.font.spell.font, size: self.font.spell.size, weight: "regular")
+  set text(
+    font: self.spell.font,
+    size: self.spell.size,
+    fill: self.spell.fill,
+    weight: "regular",
+  )
 
-  text(fill: self.fill.spell.title)[
+  text(fill: self.spell.title.fill)[
     #smallcaps[#title]
     #linebreak()
   ]
@@ -34,7 +39,7 @@
   if (components.text.split(regex("[,]")).len() > 1) {
     sing-or-plur = "plur"
   }
-  
+
   text[*#external.transl("casting-time")*: #time]
   linebreak()
   text[*#external.transl("range")*: #range]

@@ -39,5 +39,5 @@
   }
   v(40pt, weak: true)
 
-  align(center + bottom, text(13pt, text(date, font: self.font.headers.level-1.font, size: 10pt)))
+  align(center + bottom, text(13pt, text(date, font: self.headers.level-1.font, size: 10pt)))
 })

@@ -1,5 +1,4 @@
-#import "@preview/droplet:0.3.1": dropcap
-
+#import "external.typ"
 #import "config.typ"
 #import "core.typ"
 #import "utils.typ"
@@ -9,10 +8,10 @@
     self = utils.merge-dicts(self, config)
   }
   
-  dropcap(
+  external.dropcap(
     height: 4,
     justify: true,
     gap: 4pt,
-    font: self.font.dropcap.font,
+    font: self.dropcap.font,
   )[#letter #smallcaps[#smalcap] #body]
 })
