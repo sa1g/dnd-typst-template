@@ -17,9 +17,15 @@
       font: self.commentbox.title.font,
       size: self.commentbox.title.size,
       weight: self.commentbox.title.weight,
+      fill: self.commentbox.title.fill,
     )
     #utils.call-if-fn(self.commentbox.title.style, [#title])
-    #set text(font: self.commentbox.body.font, size: self.commentbox.body.size, weight: self.commentbox.body.weight)
+    #set text(
+      font: self.commentbox.body.font,
+      size: self.commentbox.body.size,
+      weight: self.commentbox.body.weight,
+      fill: self.commentbox.body.fill,
+    )
     #v(-5pt)
     #body
   ]

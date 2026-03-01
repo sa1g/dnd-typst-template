@@ -43,7 +43,11 @@
     linebreak()
   }
 
-  set text(font: self.feat.body.font, size: self.feat.body.size)
+  set text(
+    font: self.feat.body.font,
+    size: self.feat.body.size,
+    fill: self.feat.body.fill,
+  )
   let current = counter(heading).get()
   counter(heading).update(0)
   body

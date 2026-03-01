@@ -55,13 +55,14 @@
   )
 }
 
-
 #let config-comment(
-  fill: colors.PhbLightGreen,
+  background-fill: colors.PhbLightGreen,
   title-font: font-family.secondary,
   title-size: font-size.small,
   title-style: smallcaps,
   title-weight: font-weight.bold,
+  title-fill: colors.darkest,
+  fill: colors.darkest,
   font: font-family.secondary,
   size: font-size.small,
   weight: font-weight.normal,
@@ -73,14 +74,16 @@
         size: title-size,
         style: title-style,
         weight: title-weight,
+        fill: title-fill,
       ),
       body: (
         font: font,
         size: size,
         weight: weight,
+        fill: fill,
       ),
       background: (
-        fill: fill,
+        fill: background-fill,
       ),
     ),
   )
@@ -107,6 +110,7 @@
   heading-2-size: font-size.small,
   heading-2-weight: font-weight.normal,
   heading-2-style: emph,
+  fill: colors.darkest,
   font: font-family.main,
   size: font-size.small,
   line-fill: colors.titlegold,
@@ -130,7 +134,11 @@
           style: heading-2-style,
         ),
       ),
-      body: (font: font, size: size),
+      body: (
+        font: font,
+        size: size,
+        fill: fill,
+      ),
       line: (fill: line-fill, thickness: line-thickness),
     ),
   )
@@ -481,11 +489,13 @@
   area-heading-2-font: font-family.main,
   area-text-size: font-size.small,
   // dnd-commentbox
-  commentbox-fill: colors.PhbLightGreen,
+  commentbox-background-fill: colors.PhbLightGreen,
   commentbox-title-font: font-family.secondary,
   commentbox-title-size: font-size.small,
   commentbox-title-style: smallcaps,
   commentbox-title-weight: font-weight.bold,
+  commentbox-title-fill: colors.darkest,
+  commentbox-fill: colors.darkest,
   commentbox-font: font-family.secondary,
   commentbox-size: font-size.small,
   commentbox-weight: font-weight.normal,
@@ -502,6 +512,7 @@
   feat-heading-2-style: emph,
   feat-font: font-family.main,
   feat-size: font-size.small,
+  feat-fill: colors.darkest,
   feat-line-fill: colors.titlegold,
   feat-line-thickness: 1.2pt,
   // dnd-item
@@ -757,11 +768,13 @@
   config.insert(
     "commentbox",
     config-comment(
-      fill: commentbox-fill,
+      background-fill: commentbox-background-fill,
       title-font: commentbox-title-font,
       title-size: commentbox-title-size,
       title-style: commentbox-title-style,
       title-weight: commentbox-title-weight,
+      title-fill: commentbox-title-fill,
+      fill: commentbox-fill,
       font: commentbox-font,
       size: commentbox-size,
       weight: commentbox-weight,
@@ -785,6 +798,7 @@
       heading-2-style: feat-heading-2-style,
       font: feat-font,
       size: feat-size,
+      fill: feat-fill,
       line-fill: feat-line-fill,
       line-thickness: feat-line-thickness,
     ).feat,
@@ -940,7 +954,7 @@
     monster-title-fill: primary,
 
     table-cell-fill: secondary,
-    commentbox-fill: secondary,
+    commentbox-background-fill: secondary,
     sidebar-background-fill: secondary,
 
     feat-line-fill: tertiary,
@@ -970,7 +984,7 @@
     // show-chapter: false,
     // using-parts: false,
     table-cell-fill: rgb("d5d9cf"),
-    commentbox-fill: rgb("d5d9cf"),
+    commentbox-background-fill: rgb("d5d9cf"),
     readaloud-background-fill: rgb("dbdcd6"),
     readaloud-edges-fill: rgb("565d59"),
     readaloud-transparentize-fill: 30%,
