@@ -33,7 +33,9 @@
   set text(
     font: self.item.body.font,
     size: self.item.body.size,
+    fill: self.item.body.fill,
   )
+
   let current = counter(heading).get()
   counter(heading).update(0)
   body

@@ -41,17 +41,19 @@
           right: 8pt,
         ),
       )[
-        #set text(
+        #text(
           size: self.sidebar.title.size,
           font: self.sidebar.title.font,
           weight: self.sidebar.title.weight,
+          fill: self.sidebar.title.fill,
+          utils.call-if-fn(self.sidebar.title.style, [#title]),
         )
-        #utils.call-if-fn(self.sidebar.title.style, [#title])
         #v(-5pt)
         #set text(
           size: self.sidebar.body.size,
           font: self.sidebar.body.font,
           weight: "regular",
+          fill: self.sidebar.body.fill,
         )
         #body
       ]

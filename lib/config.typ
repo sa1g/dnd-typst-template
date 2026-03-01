@@ -139,7 +139,10 @@
         size: size,
         fill: fill,
       ),
-      line: (fill: line-fill, thickness: line-thickness),
+      line: (
+        fill: line-fill,
+        thickness: line-thickness,
+      ),
     ),
   )
 }
@@ -156,6 +159,7 @@
   heading-2-style: emph,
   font: font-family.main,
   size: font-size.small,
+  fill: colors.darkest,
 ) = {
   return (
     item: (
@@ -177,6 +181,7 @@
       body: (
         font: font,
         size: size,
+        fill: fill,
       ),
     ),
   )
@@ -185,19 +190,21 @@
 #let config-readaloud(
   background-fill: colors.bgtan,
   edges-fill: colors.titlered,
-  transparentize-fill: 30%,
+  background-transparentize-fill: 30%,
   font: font-family.secondary,
   size: 0.82em,
+  fill: colors.darkest,
 ) = {
   return (
     readaloud: (
       body: (
         font: font,
         size: size,
+        fill: fill,
       ),
       background: (
         fill: background-fill,
-        transparentize: transparentize-fill,
+        transparentize: background-transparentize-fill,
         fill-edge: edges-fill,
       ),
     ),
@@ -211,8 +218,10 @@
   title-size: font-size.small,
   title-weight: font-weight.normal,
   title-style: smallcaps,
+  title-fill: colors.darkest,
   font: font-family.secondary,
   size: font-size.small,
+  fill: colors.darkest,
 ) = {
   return (
     sidebar: (
@@ -221,10 +230,12 @@
         size: title-size,
         weight: title-weight,
         style: title-style,
+        fill: title-fill,
       ),
       body: (
         font: font,
         size: size,
+        fill: fill,
       ),
       fill-background: background-fill,
       fill-edge: edge-fill,
@@ -527,12 +538,14 @@
   item-heading-2-style: emph,
   item-font: font-family.main,
   item-size: font-size.small,
+  item-fill: colors.darkest,
   // dnd-readaloud
   readaloud-background-fill: colors.bgtan,
   readaloud-edges-fill: colors.titlered,
   readaloud-transparentize-fill: 30%,
   readaloud-font: font-family.secondary,
   readaloud-size: 0.82em,
+  readaloud-fill: colors.darkest,
   // dnd-sidebar
   sidebar-background-fill: colors.PhbLightGreen,
   sidebar-edge-fill: colors.darkest,
@@ -540,8 +553,10 @@
   sidebar-title-size: font-size.small,
   sidebar-title-weight: font-weight.normal,
   sidebar-title-style: smallcaps,
+  sidebar-title-fill: colors.darkest,
   sidebar-font: font-family.secondary,
   sidebar-size: font-size.small,
+  sidebar-fill: colors.darkest,
   // dnd-spell
   spell-title-fill: colors.titlered,
   spell-font: font-family.main,
@@ -818,6 +833,7 @@
       heading-2-style: item-heading-2-style,
       font: item-font,
       size: item-size,
+      fill: item-fill,
     ).item,
   )
 
@@ -826,9 +842,10 @@
     config-readaloud(
       background-fill: readaloud-background-fill,
       edges-fill: readaloud-edges-fill,
-      transparentize-fill: readaloud-transparentize-fill,
+      background-transparentize-fill: readaloud-transparentize-fill,
       font: readaloud-font,
       size: readaloud-size,
+      fill: readaloud-fill,
     ).readaloud,
   )
 
@@ -841,8 +858,10 @@
       title-size: sidebar-title-size,
       title-weight: sidebar-title-weight,
       title-style: sidebar-title-style,
+      title-fill: sidebar-title-fill,
       font: sidebar-font,
       size: sidebar-size,
+      fill: sidebar-fill,
     ).sidebar,
   )
 
