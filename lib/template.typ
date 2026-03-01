@@ -123,7 +123,7 @@
   // external.transl(data: eval(external.fluent("l10n/", lang: ("en", self.page.lang))))
   external.transl(data: read("l10n/it.ftl"), lang: "it")
   external.transl(data: read("l10n/en.ftl"), lang: "en")
-  
+
   set text(
     font: self.global.text.font,
     size: self.global.text.size,
@@ -329,7 +329,7 @@
             line(
               stroke: (
                 paint: self.outline.line.fill,
-                thickness: self.outline.line.thickness
+                thickness: self.outline.line.thickness,
               ),
               length: 100%,
             ),
@@ -391,8 +391,12 @@
   )
   show table.cell: set align(left)
   show table: set text(font: self.table.body.font, size: self.table.body.size, fill: self.table.body.fill)
-  set table(fill: (none_, y) => if calc.odd(y) { self.table.cell.primary-fill }, stroke: none)
-  // set table(fill: (none_, y) => if calc.even(y) { self.table.cell.secondary-fill }, stroke: none)
+  set table(
+    fill: (none_, y) => if calc.odd(y) { self.table.cell.primary-fill } else {
+      if y > 1 { self.table.cell.secondary-fill }
+    },
+    stroke: none,
+  )
 
   // FIGURE CONFIG
   set figure.caption(position: top)
