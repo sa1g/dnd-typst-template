@@ -48,8 +48,6 @@
     size: self.feat.body.size,
     fill: self.feat.body.fill,
   )
-  // let current = counter(heading).get()
-  // counter(heading).update(0)
+
   body
-  // counter(heading).update(current)
 })

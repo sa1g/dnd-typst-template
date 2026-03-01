@@ -36,8 +36,5 @@
     fill: self.item.body.fill,
   )
 
-  // let current = counter(heading).get()
-  // counter(heading).update(0)
   body
-  // counter(heading).update(current)
 })
