@@ -247,12 +247,14 @@
   title-fill: colors.titlered,
   font: font-family.main,
   size: font-size.small,
+  fill: colors.darkest,
 ) = {
   return (
     spell: (
       fill-title: title-fill,
       font: font,
       size: size,
+      fill: fill,
     ),
   )
 }
@@ -561,6 +563,7 @@
   spell-title-fill: colors.titlered,
   spell-font: font-family.main,
   spell-size: font-size.small,
+  spell-fill: colors.darkest,
   // dnd-monster
   monster-style: 2014,
   monster-title-fill: colors.titlered,
@@ -871,6 +874,7 @@
       title-fill: spell-title-fill,
       font: spell-font,
       size: spell-size,
+      fill: spell-fill,
     ).spell,
   )
 
