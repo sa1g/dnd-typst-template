@@ -1,8 +1,7 @@
-#import "@local/mythographer-5e:0.0.1": *
-// #import "lib/exports.typ": *
+#import "@preview/mythographer-5e:0.0.2": *
 
 #show: dnd-template.with(
-  default-config(lang: "it"),
+  default-config(lang: "en"),
 )
 
 #title-page(
